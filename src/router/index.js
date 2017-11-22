@@ -1,20 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import demo from '@/components/LUOGAN/demo'
 
 Vue.use(Router)
+import listRouter from './luoGan.js'
+import detailRouter from './yangxiaoyu.js'
+import activityRouter from './wusicong.js'
 
+var router = [];
+router = router.concat(listRouter).concat(detailRouter).concat(activityRouter);
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },{
-    	path: '/demo',
-    	name: 'demo',
-    	component:demo
-    }
-  ]
+  routes: router
 })
