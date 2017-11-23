@@ -4,18 +4,14 @@
 -->
 <template>
   <div>
-      <!-- <i class="iconfont icon-ziying"></i> -->
-      <h1>ahhah</h1>
   </div>
 </template>
 <script>
-export default {
-  
-}
+  export default {
+
+  }
+
 </script>
-<style lang='sass'>
+<style lang='scss'>
 
 </style>
-
-
-
