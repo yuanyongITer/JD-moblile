@@ -1,4 +1,4 @@
-import test from '@/components/LUOGAN/demo'
+import test from '@/components/YANGXIAOYU/demo'
 const detail = [{
 	path: '/test',
     name: 'test',
