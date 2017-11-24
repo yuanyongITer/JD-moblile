@@ -1,10 +1,10 @@
 <template>  
-	<div id="newsList">
+	<div id="load">
 		<div v-infinite-scroll="loadMore" :infinite-scroll-disabled="loading" infinite-scroll-distance="10">
 			<div v-for="item in DataList" class="block">{{item}}</div>
 		</div>
-		<div v-if="loading" id="load">
-			<div><mt-spinner type="fading-circle" color="#26a2ff"></mt-spinner></div>
+		<div v-if="loading">
+			<mt-spinner type="fading-circle" color="#26a2ff"></mt-spinner>
 		</div>
 		<div v-if="allLoad" class="Nomore">
 			暂无更多数据
@@ -13,7 +13,7 @@
 </template>
 <script>    
 	export default({
-		name: 'newsList',
+		name:'load',
 		data() {
 			return{
 				index:0,
