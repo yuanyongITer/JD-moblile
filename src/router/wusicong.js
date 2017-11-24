@@ -1,8 +1,8 @@
-import test from '@/components/LUOGAN/demo'
+import swipe from '@/components/HelloWorld'
 const detail = [{
-	path: '/test',
-    name: 'test',
-    component:test
+	path: '/swipe',
+    name: 'swipe',
+    component:swipe
 }]
 
 module.exports = detail;
