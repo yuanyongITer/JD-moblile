@@ -3,7 +3,8 @@
 功能点：展示店铺的信息
 -->
 <template>
-  <div>
+  <div class="div_class_ShopInfo">
+    
   </div>
 </template>
 <script>

@@ -7,64 +7,98 @@
   <div class="div_class_GoodsDelivery">
     <div class="div_class_Grid">
       <div class=" div_class_GridCol_Col6 div_class_Rowhead">
-          送至
+        送至
       </div>
       <div class=" div_class_GridCol_Colcenter">
-          <p>
-              <p class="all_class_OverflowHidden"><i class="iconfont icon-weibiaoti- all_class_Hightlight_Red"></i>成都市锦江区城区115号成都市锦江区城区115号成都市锦江区城区115号</p>
-          </p>
-          <p>
-              <span class="all_class_Hightlight_Red">现货</span>
-              <span>, 15:00前下单，可预约今晚送达</span>
-          </p>
+        <p>
+          <p class="all_class_OverflowHidden">
+            <i class="iconfont icon-weibiaoti- all_class_Hightlight_Red"></i>成都市锦江区城区115号成都市锦江区城区115号成都市锦江区城区115号</p>
+        </p>
+        <p>
+          <span class="all_class_Hightlight_Red">现货</span>
+          <span>, 15:00前下单，预计今晚可送达</span>
+        </p>
       </div>
       <div class=" div_class_GridCol_Col6 all_class_Hightlight_Red">
-             <i class="iconfont icon-gengduo" @click="handleClick"></i>
+        <i class="iconfont icon-gengduo" @click="handleClick"></i>
       </div>
     </div>
-    <mt-popup v-model="popupVisible" position="bottom" class="popup">
-         
+    <mt-popup v-model="popupVisible" position="bottom" class="div_class_Popup">
+      <div class="div_class_Grid">
+        <div class="div_class_GridCol_Col100 p_class_Title">配送至</div>
+      </div>
+      <div class="all_class_Content">
+        <div class="address" v-for="item in addressList" :key='item'> 
+        <div class="div_class_Grid">
+            <div class="div_class_GridCol_Col6">
+              <i class="iconfont icon-weibiaoti-"></i>
+            </div>
+            <div class=" div_class_GridCol_Colcenter">
+              广东省深圳市云海路卫家村黄沙区222号深圳市云海路卫家村黄沙区222号
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="all_class_Footer">
+        <mt-button type="danger" class="div_class_FooterBtn">选择其他地址</mt-button>
+      </div>
     </mt-popup>
   </div>
 </template>
 <script>
-export default {
-  data () {
-    return {
-      msg:'组件',
-      popupVisible:false,
-      slots: [
-        {
-          flex: 1,
-          values: ['2015-01', '2015-02', '2015-03', '2015-04', '2015-05', '2015-06'],
-          className: 'slot1',
-          textAlign: 'right'
-        }, {
-          divider: true,
-          content: '-',
-          className: 'slot2'
-        }, {
-          flex: 1,
-          values: ['2015-01', '2015-02', '2015-03', '2015-04', '2015-05', '2015-06'],
-          className: 'slot3',
-          textAlign: 'left'
-        }
-      ]
-    }
-  },
-  methods: {
-    handleClick: function() {
+  export default {
+    data() {
+      return {
+        msg: '组件',
+        popupVisible: false,
+        addressList:[
+          '广东省深圳市云海路卫家村黄沙区222号深圳市云海路卫家村黄沙区222号',
+          '区卫家村黄沙区222广东省深',
+          '区沙区222广东省深',
+          '区222号深圳市圳市云海路卫家村黄沙号云海路卫家村黄沙区222广东省深',
+        ]
+      }
+    },
+    methods: {
+      handleClick: function () {
         this.popupVisible = true
+      },
+      onValuesChange(picker, values) {
+        if (values[0] > values[1]) {
+          picker.setSlotValue(1, values[0]);
         }
+      }
     }
-}
+  }
+
 </script>
 <style lang="scss">
+  $bordercolor:#e1eef6;
+  $infocolor:#a7a7a2;
+  .all_class_OverflowHidden {
+    width: 15rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-.all_class_OverflowHidden{
-  width: 15rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .div_class_GoodsDelivery {
+    .p_class_Title {
+      text-align: center;
+      color: $infocolor;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid $bordercolor;
+    }
+    .all_class_Content {
+      width: 100%;
+      .div_class_Grid{
+        border-bottom: 1px solid $bordercolor;
+        padding-bottom: 0.5rem;
+        i{
+          margin-left: 0.2rem;
+        }
+      }
+    }
+  }
+
 </style>
