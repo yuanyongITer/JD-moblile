@@ -1,31 +1,30 @@
 <!--
-组件名：商品规格及配送信息组件
-功能点：显示商品规格及配送信息
+组件名：配送信息组件
+功能点：显示配送信息
       +点击省略号弹出PopUP供用户修改信息
 -->
 <template>
   <div class="goodsdelivery">
-    <mt-cell title="送至">
-      <span class='destination'>
-        <p>
-          <i class="iconfont icon-weibiaoti-"></i>
-          <span>成都市锦江区城区115号</span>
-        </p>
-        <p>
-          <span class="red">现货</span>
-          <span>15:00前下单，可预约今晚送达</span>
-        </p>
-      </span>
-      <i class="iconfont icon-gengduo" @click="handleClick"></i>
-    </mt-cell>
-    <mt-popup v-model="popupVisible" position="bottom">
-          <div class="header">
-                <span class="left"></span>
-                <span class="right">
-                      <p class="money">￥2699.00</p>
-                      <p>商品编号:4461470</p>
-                </span>
-          </div>
+    <div class="Grid">
+      <div class="Grid-cell u-1of8 title">
+          送至
+      </div>
+      <div class="Grid-cell center">
+          <p class='Grid-row'>
+              <i class="iconfont icon-weibiaoti-"></i>
+              <span>成都市锦江区城区115号</span>
+          </p>
+          <p class='Grid-row'>
+              <span class="red">现货</span>
+              <span>, 15:00前下单，可预约今晚送达</span>
+          </p>
+      </div>
+      <div class="Grid-cell u-1of8 red">
+             <i class="iconfont icon-gengduo" @click="handleClick"></i>
+      </div>
+    </div>
+    <mt-popup v-model="popupVisible" position="bottom" class="popup">
+         
     </mt-popup>
   </div>
 </template>
@@ -62,35 +61,16 @@ export default {
 }
 </script>
 <style lang="scss">
-  .goodsdelivery {
-    margin: auto;
-    width: 100%;
-    .destination {
-      margin-right: 40px;
-      font-size: 0.8em;
-      .icon-weibiaoti- {
-        color: red;
-      }
-      p {
-        margin-top: 2px;
-      }
-      .red {
-        color: red;
-      }
-    }
-  }
-.header{
-      width: 100%;
-      .left{
-            width: 40%;
-            height: 50px;
-            background: red;
-      }
-      .right{
-            width: 60%;
-            .money{
-                  color: red;
-            }
-      }
+.icon-weibiaoti-{
+  color: red;
 }
+.Grid-row{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
 </style>
