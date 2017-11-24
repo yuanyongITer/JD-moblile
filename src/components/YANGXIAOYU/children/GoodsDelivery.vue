@@ -4,22 +4,21 @@
       +点击省略号弹出PopUP供用户修改信息
 -->
 <template>
-  <div class="goodsdelivery">
-    <div class="Grid">
-      <div class="Grid-cell u-1of8 title">
+  <div class="div_class_GoodsDelivery">
+    <div class="div_class_Grid">
+      <div class=" div_class_GridCol_Col6 div_class_Rowhead">
           送至
       </div>
-      <div class="Grid-cell center">
-          <p class='Grid-row'>
-              <i class="iconfont icon-weibiaoti-"></i>
-              <span>成都市锦江区城区115号</span>
+      <div class=" div_class_GridCol_Colcenter">
+          <p>
+              <p class="all_class_OverflowHidden"><i class="iconfont icon-weibiaoti- all_class_Hightlight_Red"></i>成都市锦江区城区115号成都市锦江区城区115号成都市锦江区城区115号</p>
           </p>
-          <p class='Grid-row'>
-              <span class="red">现货</span>
+          <p>
+              <span class="all_class_Hightlight_Red">现货</span>
               <span>, 15:00前下单，可预约今晚送达</span>
           </p>
       </div>
-      <div class="Grid-cell u-1of8 red">
+      <div class=" div_class_GridCol_Col6 all_class_Hightlight_Red">
              <i class="iconfont icon-gengduo" @click="handleClick"></i>
       </div>
     </div>
@@ -61,16 +60,11 @@ export default {
 }
 </script>
 <style lang="scss">
-.icon-weibiaoti-{
-  color: red;
-}
-.Grid-row{
-  display: flex;
-  flex-wrap: nowrap;
+
+.all_class_OverflowHidden{
+  width: 15rem;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
-
-
 </style>
