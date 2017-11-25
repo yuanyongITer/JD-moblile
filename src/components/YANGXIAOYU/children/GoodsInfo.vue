@@ -149,9 +149,9 @@
     .div_class_FlowCol{
       box-sizing: border-box;
       white-space: nowrap;
-      flex: 0 0 10%;
-      margin: 0.2rem 0.2rem;
-      padding: 0 0.3rem;
+      flex: 0 0 45%;
+      margin: 0.2rem;
+      padding: 0.1rem  0.5rem ;
     }
   }
   /*公共样式*/
