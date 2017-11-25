@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-if="isDouble" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10" class="div_classBackgroundColor">
+		<div v-if="isDouble" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10" class="div_classBackgroundColor" @click="detailedIntroduction">
 			<div class="div_classDoubleLeft" v-for="(item,index) in 6" :key="index">
 				<img src="../../assets/Lg_img/iphone8.jpg" class="img_classDouble">
 				<div class="div_classText">
@@ -13,7 +13,7 @@
 			</div>
 		</div>
 		<div v-else>
-			<div v-for="(item,index) in 6" :key="index" class="div_class_Grid">
+			<div v-for="(item,index) in 6" :key="index" class="div_class_Grid" @click="detailedIntroduction">
 				<div class="div_class_GridCol_Col33">
 					<img src="../../assets/Lg_img/iphone8.jpg" class="img_classSingle">
 				</div>
@@ -23,7 +23,7 @@
 						<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
 					</div>
 					<div class="div_classMarginTop">
-						<p class="p_classLength">
+						<p>
 							<span class="all_class_Hightlight_Red"><i class="iconfont icon-ziying"></i></span><span class="span_classAppraise ">272306条评价</span><span class="span_classData">99%好评</span>
 						</p>
 					</div>
@@ -36,13 +36,16 @@
 	export default{
 		data(){
 			return{
-				isDouble:true,
+				isDouble:false,
 				loading:false,
 			}
 		},
 		mounted(){
 		},
 		methods:{
+			detailedIntroduction(){
+				this.$router.push('/test');
+			}
 		},
 	}
 </script>
