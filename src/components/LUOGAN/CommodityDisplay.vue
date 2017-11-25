@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<div v-if="isDouble" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10" class="div_classBackgroundColor" @click="detailedIntroduction">
-			<div class="div_classDoubleLeft" v-for="(item,index) in 6" :key="index">
+		<div v-if="isDouble" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20" @click="detailedIntroduction">
+			<div class="div_classDoubleLeft" v-for="(item,index) in num" :key="index">
 				<img src="../../assets/Lg_img/iphone8.jpg" class="img_classDouble">
 				<div class="div_classText">
 					<p class="p_classDoubleSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
@@ -13,7 +13,7 @@
 			</div>
 		</div>
 		<div v-else>
-			<div v-for="(item,index) in 6" :key="index" class="div_class_Grid" @click="detailedIntroduction">
+			<div v-for="(item,index) in num" :key="index" class="div_class_Grid" @click="detailedIntroduction" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10">
 				<div class="div_class_GridCol_Col33">
 					<img src="../../assets/Lg_img/iphone8.jpg" class="img_classSingle">
 				</div>
@@ -30,22 +30,63 @@
 				</div>
 			</div>
 		</div>
+		<!-- <div v-if="loading">
+			<mt-spinner type="fading-circle" color="#26a2ff"></mt-spinner>
+		</div> -->
+		<div v-if="allLoad" class="div_classNomore">
+			暂无更多数据
+		</div>
 	</div>
 </template>
 <script type="text/javascript">
+	import { Indicator,Toast } from 'mint-ui';
 	export default{
-		data(){
+		data() {
 			return{
-				isDouble:false,
 				loading:false,
+				allLoad:false,
+				allLoaded:false,
+				num:4,
+				isDouble:true
 			}
 		},
+		components:{
+			Indicator,
+			Toast
+		},
 		mounted(){
+			
+		},
+		created(){
+			// this.loadData();
 		},
 		methods:{
 			detailedIntroduction(){
-				this.$router.push('/test');
-			}
+				// this.$router.push('/test');
+			},
+			loadMore() {
+				let _this = this;
+				console.log(_this.num);
+				if(_this.allLoad){
+					return;
+				}
+			    Indicator.open('加载中...');
+				setTimeout(() => {
+				  	if(_this.num === 16){
+				  		Indicator.close();
+				  		_this.allLoad = true;
+				  		return;
+				  	} else {
+				    	_this.loadData();
+				  	}
+				    Indicator.close();
+				}, 1000);
+			},
+			loadData(){
+	      		for(let i=0;i<4;i++){
+	      			this.num ++;
+	      		}
+      		}
 		},
 	}
 </script>
@@ -53,9 +94,6 @@
 	$hightlightcolor:red;
     $fontsize:0.8rem;
     $infocolor:#a7a7a2;
-	.div_classBackgroundColor{
-		background-color:#fafafa;
-	}
 	.div_classDoubleLeft{
 		flex: none;
 		display: flex;
@@ -203,5 +241,10 @@
 	    background: $hightlightcolor;
 	    border: 1px solid $hightlightcolor;
     }
+  }
+  .div_classNomore{
+  	color: $infocolor;
+  	font-size: $fontsize;
+  	text-align: center;
   }
 </style>
