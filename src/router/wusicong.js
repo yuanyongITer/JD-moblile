@@ -1,8 +1,8 @@
-import swipe from '@/components/LUOGAN/LoadMoreTest' //下拉加载更多测试组件
-const detail = [{
-	path: '/swipe',
-    name: 'swipe',
-    component:swipe
+import PictureRotation from '@/components/WUSICONG/PictureRotation'
+const activity = [{
+	path: '/picturerotation',
+    name: 'PictureRotation',
+    component:PictureRotation
 }]
 
-module.exports = detail;
+module.exports = activity;

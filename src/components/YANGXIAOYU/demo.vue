@@ -9,6 +9,7 @@
 		</mt-header>
 		<div class="div_class_ShopContent">
 			<!--轮播图-->
+			<PictureRotation></PictureRotation>
 			<!--商品信息-->
 			<GoodsInfo></GoodsInfo>
 			<!--商品规格及配送-->
@@ -28,13 +29,15 @@
 	import GoodsRating from './children/GoodsRating'
 	import ShopInfo from './children/ShopInfo'
 	import GoodsRank from './children/GoodsRank'
+	import PictureRotation from '../WUSICONG/PictureRotation'
 	export default{
 		components: {
 			GoodsInfo,
 			GoodsDelivery,
 			GoodsRating,
 			ShopInfo,
-			GoodsRank
+			GoodsRank,
+			PictureRotation
 	    },
 		data(){
 			return {
