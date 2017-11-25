@@ -96,7 +96,17 @@
 <style lang='scss'>
   $hightlightcolor:red;
   $infocolor:#a7a7a2;
+  $bordercolor:#e1eef6;
   $fontsize:0.8rem;
+  /*自定义样式*/
+  .div_class_GoodsInfo{
+    .div_class_Grid:nth-child(3){
+      padding:0.5rem 0;
+      border-top:1px solid $bordercolor;
+    }
+  }
+  
+
   /*网格布局*/
   .div_class_Grid {
     display: flex;
@@ -107,14 +117,17 @@
       //col6 表示占6/100 的宽度
       flex: 0 0 6%;
     }
+    .div_class_GridCol_Col20 {
+      flex: 0 0 20%;
+    }
     .div_class_GridCol_Col33 {
       flex: 0 0 33%;
     }
     .div_class_GridCol_Col66 {
       flex: 0 0 66%;
     }
-    .div_class_GridCol_Col20 {
-      flex: 0 0 20%;
+    .div_class_GridCol_Col48 {
+      flex: 0 0 48%;
     }
     .div_class_GridCol_Col100 {
       //col100 表示占 100/100的宽度 即全屏
@@ -146,7 +159,6 @@
     white-space: nowrap;
     color: $infocolor;
   }
-
   .all_class_Hightlight_Red {
     //高亮的部分 比如说红色
     color: $hightlightcolor;
@@ -156,7 +168,7 @@
       border: 1px solid $hightlightcolor;
     }
   }
-  /*自定义样式*/
+  /*弹出框*/
   .div_class_Popup {
     width: 100%;
     height: 70%;

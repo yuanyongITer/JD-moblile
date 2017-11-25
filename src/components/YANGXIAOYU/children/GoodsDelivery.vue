@@ -83,6 +83,9 @@
   }
 
   .div_class_GoodsDelivery {
+    padding:0.6rem 0;
+    border-top:1px solid $bordercolor;
+    border-bottom:1px solid $bordercolor;
     .p_class_Title {
       text-align: center;
       color: $infocolor;
