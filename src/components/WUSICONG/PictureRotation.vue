@@ -21,7 +21,7 @@
 						}
 					},{
 						style: {
-							'backgroundImage': 'url(static/img2.jpg)'
+							'backgroundImage': 'url(static/img1.jpg)'
 						}
 					},{
 						style: {
@@ -29,7 +29,7 @@
 						},
 					},{
 						style: {
-							'backgroundImage': 'url(static/img2.jpg)'
+							'backgroundImage': 'url(static/img1.jpg)'
 						}
 					}
 				],
