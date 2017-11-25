@@ -1,8 +1,9 @@
 <template>
 	<div class="div_class_bigAll">
-		 <div class="div_class_pagination">{{message}}/{{sumMessage}}</div> -->
+		 <div class="div_class_pagination">{{message}}/{{sumMessage}}</div> 
 		<slider :pages="pages" :sliderinit="sliderinit" class="slider_class_slider" @slide="slide">
 		</slider>
+		<div></div>
 	</div>
 </template>
 
@@ -14,7 +15,7 @@
 		},
 		data() {
 			return {
-				//图片列表[arr]
+				
 				pages: [{
 						style: {
 							'backgroundImage': 'url(static/img1.jpg)'
@@ -60,39 +61,37 @@
 </script>
 <style scoped>
 	.div_class_bigAll {
+		display: -webkit-flex;
 		display: flex;
 		width: 100%;
 		margin: 0;
 		height: 20rem;
 		padding: 0;
-		flex-direction: column;
 		align-items: center;
-		justify-content: flex-start;
-		position: relative;
-		flex-wrap: wrap;
-		margin-top:
+		justify-content: center;
 	}
 	
 	.slider_class_slider {
 		opacity: 1;
 		width: 100%;
-		position: absolute;
+		order:2;
 		margin: 0px;
 		padding: 0px;
 		height: 20rem;
+		align-self:center;
 	}
-	
 	.div_class_pagination {
-		display: flex;
-		position: relative;
+		position: absolute;
 		width: 2.5rem;
 		border-radius: 3rem;
 		border-width: 1px solid #B3B3B3;
-		align-self: flex-end;
 		justify-content: center;
-		margin-top: 18rem;
-		z-index: 100;
 		color: white;
 		background-color:#B3B3B3;
+		order: 1;
+		z-index: 2;
+		align-self:center;
+		display: flex;
+		margin-top: 9rem;
 	}
 </style>
