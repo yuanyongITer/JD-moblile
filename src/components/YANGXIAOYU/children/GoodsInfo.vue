@@ -36,7 +36,7 @@
       <div class="all_class_Header">
         <div class="div_class_Grid">
           <div class=" div_class_GridCol_Col33">
-            <img src="../assets/img/good.jpg">
+            <img src="../../../../static/info_all_good.jpg">
           </div>
           <div class=" div_class_GridCol_Col66">
             <p class="all_class_Hightlight_Red">￥2699.00</p>

@@ -13,7 +13,7 @@
       <mt-tab-container-item id="div_id_Recommend">  
          <div class="div_class_Grid">
             <div class=" div_class_GridCol_Col33 " v-for="n in 6" :key="n">
-              <img src="../assets/img/good.jpg">
+              <img src="../../../assets/yxyImg/info_all_good.jpg">
               <p class="p_class_Intro">华为(HUAWEI)荣耀V9手机 极光蓝 移动联通电信4G手机 双卡双待</p>
               <p class="p_class_Money">￥2688.00</p>
             </div>
@@ -22,7 +22,7 @@
       <mt-tab-container-item id="div_id_Rank">  
           <div class="div_class_Grid">
             <div class=" div_class_GridCol_Col33 " v-for="n in 4" :key="n">
-              <img src="../assets/img/good.jpg">
+              <img src="../../../assets/yxyImg/info_all_good.jpg">
               <p class="p_class_Intro">华为(HUAWEI)荣耀V9手机 极光蓝 移动联通电信4G手机 双卡双待</p>
               <p class="p_class_Money">￥2688.00</p>
             </div>

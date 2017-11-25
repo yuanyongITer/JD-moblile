@@ -1,6 +1,6 @@
 <template>
 	<div class="div_class_bigAll">
-		<!-- <div class="div_class_pagination">{{message}}/{{sumMessage}}</div> -->
+		 <div class="div_class_pagination">{{message}}/{{sumMessage}}</div> -->
 		<slider :pages="pages" :sliderinit="sliderinit" class="slider_class_slider" @slide="slide">
 		</slider>
 	</div>
@@ -70,6 +70,7 @@
 		justify-content: flex-start;
 		position: relative;
 		flex-wrap: wrap;
+		margin-top:
 	}
 	
 	.slider_class_slider {

@@ -76,10 +76,12 @@
   $bordercolor:#e1eef6;
   $infocolor:#a7a7a2;
   .all_class_OverflowHidden {
-    width: 15rem;
     overflow: hidden;
+    text-overflow: -o-ellipsis-lastline;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 
   .div_class_GoodsDelivery {
