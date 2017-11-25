@@ -6,8 +6,8 @@
 				<div class="div_classText">
 					<p class="p_classDoubleSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
 					<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
-					<p class="p_classDoubleSize">
-						<span class="span_classStop">自营</span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
+					<p class="p_classLength">
+						<span class="all_class_Hightlight_Red"><i class="iconfont icon-ziying"></i></span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
 					</p>
 				</div>
 			</div>
@@ -23,8 +23,8 @@
 						<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
 					</div>
 					<div class="div_classMarginTop">
-						<p class="p_classDoubleSize">
-							<span class="span_classStop">自营</span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
+						<p class="p_classLength">
+							<span class="all_class_Hightlight_Red"><i class="iconfont icon-ziying"></i></span><span class="span_classAppraise ">272306条评价</span><span class="span_classData">99%好评</span>
 						</p>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 	export default{
 		data(){
 			return{
-				isDouble:false,
+				isDouble:true,
 				loading:false,
 			}
 		},
@@ -112,6 +112,7 @@
 		padding: 0.6rem;
 	}
 	.p_classSize{
+		line-height: 1.2rem;
 		font-size: $fontsize;
 		display: -webkit-box; 
 		-webkit-box-orient: vertical;
@@ -120,6 +121,13 @@
 		/*text-overflow:ellipsis;
 		white-space: nowrap;*/
 		margin-bottom: 0.8rem;
+		margin-top: 0.8rem;
+	}
+	.p_classLength{
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp:1;
+		overflow: hidden;
 	}
 	.span_classMark{
 		font-size: $fontsize;
@@ -141,13 +149,12 @@
 	.span_classStop{
 		font-size: 0.6rem;
 		margin-right: 0.4rem;
-		padding-right: 0.05rem;
-		padding-left: 0.05rem;
-		padding-top: 0.05rem;
+		/*padding:0.05rem;*/
 		border: 1px solid $hightlightcolor;
 		color: $hightlightcolor; 
 	}
 	.span_classAppraise{
+		margin-left: 0.3rem;
 		font-size: 0.6rem;
 		color:$infocolor;
 		margin-right: 0.45rem; 
@@ -183,6 +190,15 @@
       //未单独固定宽度的,宽度均为自动撑开
       flex: 1;
       padding: 0 0.6rem; //作为中间元素保持左右间距
+    }
+  }
+  .all_class_Hightlight_Red {
+    /*//高亮的部分 比如说红色*/
+    color: $hightlightcolor;
+    .icon-ziying {
+    	color: #fff;
+	    background: $hightlightcolor;
+	    border: 1px solid $hightlightcolor;
     }
   }
 </style>
