@@ -4,8 +4,8 @@
 -->
 <template>
 	<div id="div_GoodsRating">
-		<mt-cell title="评价(132096)" to="" is-link>
-		  	好评度&nbsp;&nbsp;<span class="all_class_Hightlight_Red"> 97%</span>
+		<mt-cell to="" is-link>
+		  	<span style="font-size: 0.8rem;">好评度&nbsp;&nbsp;<span class="all_class_Hightlight_Red"> 97%</span></span>
 		</mt-cell>
 		<div class="div_class_ratingContent" v-for="item in num">
 			<div class="div_class_Grid">
@@ -13,7 +13,7 @@
 					<img src="../assets/img/peisong.jpg" class="userImg">
 				</div>
 				<div class="div_class_GridCol_Colcenter">
-					<p class="p_class_userInfo p_class_margin">
+					<p class="p_class_userInfo">
 						<span>令*****龙 <mt-badge size="small" color="#888">PLUS</mt-badge></span>
 						<span>⭐⭐⭐⭐⭐</span>
 					</p>
@@ -21,7 +21,7 @@
 			</div>
 			<div class="div_class_Grid">
 				<div class="div_class_GridCol_Col100">
-					<p class="p_class_margin">物流速度很快，一大早就收到了，试用了一下午，说说感觉吧，手机很流畅就是电池待机不行，一天充好几回，根本不行，不经用...</p>
+					<p class="p_class_margin">物流速度很快，一大早就收到了，试用了一下午，说说感觉吧，手机很流畅就是电池待机不行，一天充好几回...</p>
 					<div class="div_class_ActualPicture">
 						<img src="../assets/img/good.jpg" class="imgItem">
 						<img src="../assets/img/good.jpg" class="imgItem">
@@ -56,32 +56,9 @@
 	}
 </script>
 <style scoped>
-	/*.div_class_Grid {
-	    display: flex;
-	    align-items: flex-start;
-	    font-size: 0.8rem;
-	    margin: 0.4rem 0;
+	#div_GoodsRating{
+		font-size: 0.8rem;
 	}
-	.div_class_GridCol_Col6 {
-      flex: 0 0 6%;
-    }
-    .div_class_GridCol_Col33{
-      flex: 0 0 33%;
-    }
-    .div_class_GridCol_Col66{
-      flex: 0 0 66%;
-    }
-    .div_class_GridCol_Col100 {
-      flex: 0 0 100%;
-    }
-    .div_class_GridCol_Colcenter {
-      flex:1;
-      padding: 0 0.6rem;
-    }
-    .all_class_Hightlight_Red{
-    	color: red;
-    }*/
-
     /**顶部的样式**/
     .div_class_ratingBtn{
     	display: flex;
@@ -95,7 +72,8 @@
     	color: #A2A2A2;
     	border: 1px solid #F0F0F0;
     	border-radius:5px;
-    	padding: 0.5rem 0;
+    	padding: 0.4rem 0;
+    	font-size: 0.8rem;
     }
     /**评价详情样式**/
     .div_class_ratingContent{
@@ -109,10 +87,11 @@
 		overflow:hidden;
 	}
 	.p_class_margin{
-		margin: 0.5rem;
+		margin: 0rem 0.5rem 0.5rem;
 	}
 	.p_class_userInfo{
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
 	}
 	.div_class_ActualPicture{
@@ -126,7 +105,8 @@
 	}
 
 	.p_class_goodsSize{
-		margin: 0.4rem;
+		margin: 0.4rem 0rem 0.2rem;
 		color: #c1c1c1;
+		font-size: 0.8rem;
 	}
 </style>
