@@ -15,7 +15,7 @@
 				<div class="div_class_GridCol_Colcenter">
 					<p class="p_class_userInfo">
 						<span>令*****龙 <mt-badge size="small" color="#888">PLUS</mt-badge></span>
-						<span>⭐⭐⭐⭐⭐</span>
+						<span>⭐⭐⭐⭐⭐☆</span>
 					</p>
 				</div>
 			</div>

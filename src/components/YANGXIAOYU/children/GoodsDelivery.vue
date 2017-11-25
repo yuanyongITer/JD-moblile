@@ -28,13 +28,18 @@
         <div class="div_class_GridCol_Col100 p_class_Title">配送至</div>
       </div>
       <div class="all_class_Content">
-        <div class="address" v-for="item in addressList" :key='item'> 
-        <div class="div_class_Grid">
+        <div class="address" v-for="(addressitem,$index) in addressList" :key='addressitem'> 
+        <div class="div_class_Grid ":class='{all_class_clicked_noborder:$index == clickedAddressIndex}' 
+              :key='$index' @click="getAddressChoose($index)" 
+        >
             <div class="div_class_GridCol_Col6">
               <i class="iconfont icon-weibiaoti-"></i>
             </div>
             <div class=" div_class_GridCol_Colcenter">
-              广东省深圳市云海路卫家村黄沙区222号深圳市云海路卫家村黄沙区222号
+              {{addressitem}}
+            </div>
+            <div class="div_class_GridCol_Col6">
+              <span>√</span>
             </div>
           </div>
         </div>
@@ -51,6 +56,7 @@
       return {
         msg: '组件',
         popupVisible: false,
+        clickedAddressIndex:'0',
         addressList:[
           '广东省深圳市云海路卫家村黄沙区222号深圳市云海路卫家村黄沙区222号',
           '区卫家村黄沙区222广东省深',
@@ -67,6 +73,9 @@
         if (values[0] > values[1]) {
           picker.setSlotValue(1, values[0]);
         }
+      },
+      getAddressChoose(index){
+        this.clickedAddressIndex = index;
       }
     }
   }
@@ -75,6 +84,7 @@
 <style lang="scss">
   $bordercolor:#e1eef6;
   $infocolor:#a7a7a2;
+  $hightlightcolor:red;
   .all_class_OverflowHidden {
     overflow: hidden;
     text-overflow: -o-ellipsis-lastline;
@@ -83,7 +93,9 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
   }
-
+  .all_class_clicked_noborder{
+    color:$hightlightcolor;
+  }
   .div_class_GoodsDelivery {
     padding:0.6rem 0;
     border-top:1px solid $bordercolor;
