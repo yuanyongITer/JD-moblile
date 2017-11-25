@@ -14,7 +14,7 @@
 		},
 		data() {
 			return {
-				//图片列表[arr]
+				
 				pages: [{
 						style: {
 							'backgroundImage': 'url(static/img1.jpg)'
