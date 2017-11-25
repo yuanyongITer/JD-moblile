@@ -21,12 +21,8 @@
 				<div class="div_class_GridCol_Colcenter">
 					<p class="p_class_userInfo">
 						<span>令*****龙 <mt-badge size="small" color="#888">PLUS</mt-badge></span>
-						<span>
-							<i class="iconfont icon-star1 all_class_Hightlight_Red"></i>
-							<i class="iconfont icon-star1 all_class_Hightlight_Red"></i>
-							<i class="iconfont icon-star1 all_class_Hightlight_Red"></i>
-							<i class="iconfont icon-star1 all_class_Hightlight_Red"></i>
-							<i class="iconfont icon-star1 all_class_Hightlight_Red"></i>
+						<span class="all_class_Hightlight_Red">
+							<span  v-for="(star,index) in 5">★</span>
 						</span>
 					</p>
 				</div>
@@ -76,6 +72,10 @@
 		justify-content: space-between;
 		padding: 0.5rem 0.3rem;
 	}
+	.div_class_Center{
+		display: flex;
+		align-self: baseline;
+	}
     /**顶部的样式**/
     .div_class_ratingBtn{
     	display: flex;
@@ -117,6 +117,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		padding: 0.4rem 0.2rem;
 	}
 	.div_class_ActualPicture{
 		display: flex;
