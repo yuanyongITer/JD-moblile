@@ -10,7 +10,7 @@
 		<div class="div_class_ratingContent" v-for="item in num">
 			<div class="div_class_Grid">
 				<div class="div_class_GridCol_Col6">
-					<img src="../../../assets/yxyImg/info_all_peisong.jpg" class="userImg">
+					<img src="../../../../static/info_all_peisong.jpg" class="userImg">
 				</div>
 				<div class="div_class_GridCol_Colcenter">
 					<p class="p_class_userInfo">
@@ -23,10 +23,10 @@
 				<div class="div_class_GridCol_Col100">
 					<p class="p_class_margin">物流速度很快，一大早就收到了，试用了一下午，说说感觉吧，手机很流畅就是电池待机不行，一天充好几回...</p>
 					<div class="div_class_ActualPicture">
-						<img src="../../../assets/yxyImg/info_all_good.jpg" class="imgItem">
-						<img src="../../../assets/yxyImg/info_all_good.jpg" class="imgItem">
-						<img src="../../../assets/yxyImg/info_all_good.jpg" class="imgItem">
-						<img src="../../../assets/yxyImg/info_all_good.jpg" class="imgItem">
+						<img src="../../../../static/info_all_good.jpg" class="imgItem">
+						<img src="../../../../static/info_all_good.jpg" class="imgItem">
+						<img src="../../../../static/info_all_good.jpg" class="imgItem">
+						<img src="../../../../static/info_all_good.jpg" class="imgItem">
 					</div>
 				</div>
 			</div>
