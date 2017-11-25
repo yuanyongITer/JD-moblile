@@ -6,7 +6,7 @@
 				<div class="div_classText">
 					<p class="p_classDoubleSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
 					<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
-					<p class="p_classSize">
+					<p class="p_classDoubleSize">
 						<span class="span_classStop">自营</span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
 					</p>
 				</div>
@@ -16,7 +16,7 @@
 				<div class="div_classText">
 					<p class="p_classDoubleSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
 					<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
-					<p class="p_classSize">
+					<p class="p_classDoubleSize">
 						<span class="span_classStop">自营</span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
 					</p>
 				</div>
@@ -26,7 +26,7 @@
 				<div class="div_classText">
 					<p class="p_classDoubleSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
 					<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
-					<p class="p_classSize">
+					<p class="p_classDoubleSize">
 						<span class="span_classStop">自营</span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
 					</p>
 				</div>
@@ -36,7 +36,7 @@
 				<div class="div_classText">
 					<p class="p_classDoubleSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
 					<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
-					<p class="p_classSize">
+					<p class="p_classDoubleSize">
 						<span class="span_classStop">自营</span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
 					</p>
 				</div>
@@ -48,11 +48,15 @@
 					<img src="../../assets/Lg_img/iphone8.jpg" class="img_classSingle">
 				</div>
 				<div class="div_classSingleRight">
-					<p class="p_classDoubleSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
-					<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
-					<p class="p_classSize">
-						<span class="span_classStop">自营</span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
-					</p>
+					<p class="p_classSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
+					<div class="div_classMarginTop">
+						<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
+					</div>
+					<div class="div_classMarginTop">
+						<p class="p_classDoubleSize">
+							<span class="span_classStop">自营</span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
+						</p>
+					</div>
 				</div>
 			</div>
 			<div>
@@ -60,11 +64,15 @@
 					<img src="../../assets/Lg_img/iphone8.jpg" class="img_classSingle">
 				</div>
 				<div class="div_classSingleRight">
-					<p class="p_classDoubleSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
-					<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
-					<p class="p_classSize">
-						<span class="span_classStop">自营</span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
-					</p>
+					<p class="p_classSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
+					<div class="div_classMarginTop">
+						<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
+					</div>
+					<div class="div_classMarginTop">
+						<p class="p_classDoubleSize">
+							<span class="span_classStop">自营</span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -126,13 +134,16 @@
 		background-color:white;
 	}
 	.p_classDoubleSize{
-		/*font-size: $fontsize;*/
-		/*display: -webkit-box;
+		font-size: $fontsize;
+		display: -webkit-box;
 		-webkit-box-orient: vertical;
-		-webkit-line-clamp:1;*/
+		-webkit-line-clamp:1;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+	}
+	.div_classMarginTop{
+		margin-top: 0.2rem;
 	}
 	.img_classDouble{
 		width: 100%;
@@ -146,12 +157,14 @@
 		padding: 0.6rem;
 	}
 	.p_classSize{
-		/*display: -webkit-box; 
+		font-size: $fontsize;
+		display: -webkit-box; 
 		-webkit-box-orient: vertical;
-		-webkit-line-clamp:2;*/
+		-webkit-line-clamp:2;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow:ellipsis;
+		margin-bottom: 0.8rem;
 	}
 	.span_classMark{
 		font-size: $fontsize;
