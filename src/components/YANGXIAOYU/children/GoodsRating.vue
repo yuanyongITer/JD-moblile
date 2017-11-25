@@ -4,9 +4,15 @@
 -->
 <template>
 	<div id="div_GoodsRating">
-		<mt-cell to="" is-link>
-		  	<span style="font-size: 0.8rem;">好评度&nbsp;&nbsp;<span class="all_class_Hightlight_Red"> 97%</span></span>
-		</mt-cell>
+		<div class="div_class_RatingLink">
+			<div class="div_class_Rowhead">
+				评价数(2334)
+			</div>
+			<div>好评度&nbsp;&nbsp;
+				<span class="all_class_Hightlight_Red">97%</span>
+				<i class="iconfont icon-arrow-right"></i>
+			</div>
+		</div>
 		<div class="div_class_ratingContent" v-for="item in num">
 			<div class="div_class_Grid">
 				<div class="div_class_GridCol_Col6">
@@ -15,13 +21,19 @@
 				<div class="div_class_GridCol_Colcenter">
 					<p class="p_class_userInfo">
 						<span>令*****龙 <mt-badge size="small" color="#888">PLUS</mt-badge></span>
-						<span>⭐⭐⭐⭐⭐</span>
+						<span>
+							<i class="iconfont icon-star1 all_class_Hightlight_Red"></i>
+							<i class="iconfont icon-star1 all_class_Hightlight_Red"></i>
+							<i class="iconfont icon-star1 all_class_Hightlight_Red"></i>
+							<i class="iconfont icon-star1 all_class_Hightlight_Red"></i>
+							<i class="iconfont icon-star1 all_class_Hightlight_Red"></i>
+						</span>
 					</p>
 				</div>
 			</div>
 			<div class="div_class_Grid">
 				<div class="div_class_GridCol_Col100">
-					<p class="p_class_margin">物流速度很快，一大早就收到了，试用了一下午，说说感觉吧，手机很流畅就是电池待机不行，一天充好几回...</p>
+					<p class="p_class_Intro">物流速度很快，一大早就收到了，试用了一下午，说说感觉吧，我是把我的5S换了，5用了3年了，手机很流畅就是电池待机不行，一天充好几回。关注8很久了，由于价格太高一直没下手，刚好前几天华为美十也上了，去看过，确实不错，有想入手的冲动，可是这两天关注8的时候看到京东优惠蛮大的，就果断入手了。</p>
 					<div class="div_class_ActualPicture">
 						<img src="../assets/img/good.jpg" class="imgItem">
 						<img src="../assets/img/good.jpg" class="imgItem">
@@ -59,6 +71,11 @@
 	#div_GoodsRating{
 		font-size: 0.8rem;
 	}
+	.div_class_RatingLink{
+		display: flex;
+		justify-content: space-between;
+		padding: 0.5rem 0.3rem;
+	}
     /**顶部的样式**/
     .div_class_ratingBtn{
     	display: flex;
@@ -86,9 +103,16 @@
 		border-radius:50%;
 		overflow:hidden;
 	}
-	.p_class_margin{
-		margin: 0rem 0.5rem 0.5rem;
-	}
+	.p_class_Intro{
+        font-size: 0.6rem - 0.2rem ;
+        overflow: hidden;
+        text-overflow: -o-ellipsis-lastline;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin-bottom: 0.5rem;
+    }
 	.p_class_userInfo{
 		display: flex;
 		align-items: center;
