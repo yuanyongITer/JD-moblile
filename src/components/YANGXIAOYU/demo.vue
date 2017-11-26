@@ -72,7 +72,7 @@
   .div_class_NavBar{
     display: flex;
     align-items: center;
-    z-index: 2;
+    z-index: 101;
     i{
       width: 2.5rem;
     }

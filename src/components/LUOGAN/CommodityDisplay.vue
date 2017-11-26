@@ -47,7 +47,7 @@
 				allLoad:false,
 				allLoaded:false,
 				num:4,
-				isDouble:true
+				isDouble:false
 			}
 		},
 		components:{
@@ -206,10 +206,9 @@
 	}
 	.div_class_Grid {
     display: flex;
-    align-items: flex-start;
+	align-items: stretch;
     font-size: $fontsize;
     margin: 0.4rem 0;
-    border-bottom: 1px solid #e1eef6; 
     .div_class_GridCol_Col6{
       /*//col6 表示占6/100 的宽度*/
       flex: 0 0 6%;
@@ -219,6 +218,7 @@
     }
     .div_class_GridCol_Col66 {
       flex: 0 0 66%;
+	  border-bottom:1px solid #e1eef6 ;
     }
     .div_class_GridCol_Col20 {
       flex: 0 0 20%;

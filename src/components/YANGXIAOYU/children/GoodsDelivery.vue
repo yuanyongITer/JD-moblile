@@ -39,7 +39,7 @@
               {{addressitem}}
             </div>
             <div class="div_class_GridCol_Col6">
-              <span>√</span>
+              <span v-show="$index == clickedAddressIndex">√</span>
             </div>
           </div>
         </div>
