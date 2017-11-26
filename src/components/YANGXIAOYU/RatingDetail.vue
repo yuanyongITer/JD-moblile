@@ -1,17 +1,15 @@
 <template>
 	<div id="div_GoodsRating">
-		<div class="div_class_buttons">
-			<!-- <div class="div_class_Grid">
-				<div class="div_class_GridCol_Col6">
-	              	<span v-show="$index == clickedAddressIndex">√</span>
-	            </div>
-	            <button class="btn_item">√ 全部 821</button>
-			</div> -->
-			
-			<!-- <button class="btn_item">√ 好评 744</button>
-			<button class="btn_item">√ 中评 11</button>
-			<button class="btn_item">√ 差评 18</button> -->
+		<div class="div_class_rateButtons">
+			<div v-for="(item,index) in RatingList" :key="index">
+				<div class="div_class_Grid btn_item" :class='{btn_active:index == clickedRatingIndex}' @click="getRateChoose(index)">
+					<span v-if="index == clickedRatingIndex" style="color: red;">√</span>
+		           	<span v-else style="color: #FFA07A;">√</span>
+		           	{{item}}
+				</div>
+			</div>
 		</div>
+
 		<div v-infinite-scroll="loadMore" :infinite-scroll-disabled="loading" infinite-scroll-distance="10">
 			<div class="div_class_Grid div_class_ratingBox" v-for="n in num">
 				<div class="div_class_GridCol_Col6">
@@ -66,7 +64,9 @@
 				loading:false,
 				allLoad:false,
 				allLoaded:false,
-				num:0
+				num:0,
+				RatingList:['全部(821)','好评(744)','中评(11)','差评(18)'],
+				clickedRatingIndex:'0',
 			}
 		},
 		components:{
@@ -98,6 +98,9 @@
 	      		for(let i=0;i<3;i++){
 	      			this.num ++;
 	      		}
+      		},
+      		getRateChoose(index){
+      			this.clickedRatingIndex = index;
       		}
 		}
 	}
@@ -129,15 +132,18 @@
     	color: red;
     }
 
+    #div_GoodsRating{
+    	margin-top: 2.5rem;
+    }
     /*评价类型按钮的样式*/
-    .div_class_buttons{
+    .div_class_rateButtons{
     	display: flex;
 		justify-content: space-around;
 		padding: 0.8rem 0 0.7rem;
 		border-bottom: 1px solid #F1F1F1;
     }
     .btn_item{
-    	padding: 0.3rem 0.5rem;
+    	padding: 0.2rem 0.5rem;
     	border: 1px solid red;
     	border-radius: 5px;
     	background: #FFA07A;
