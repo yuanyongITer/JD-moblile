@@ -1,0 +1,41 @@
+/*
+*   公共样式函数
+*/
+
+/*高亮色*/
+$gcolorHighlightRed:red;
+
+//字体大小、行高、字体
+@mixin setFont($size, $line-height, $family: 'Microsoft YaHei') {  
+	font: #{$size}/#{$line-height} $family;
+}
+
+//字体大小，颜色
+@mixin setSizeColor($size, $color){
+	font-size: $size;
+	color: $color;
+}
+
+//宽高
+@mixin setWH($width, $height){
+	width: $width;
+	height: $height;
+}
+
+
+//高亮函数
+@mixin setHighLight($bordersize){
+    color:$gcolorHighlightRed;
+    //background: $gcolorHighlightRed;
+    border: #{$bordersize} solid $gcolorHighlightRed;
+}
+
+//文本超出XX行省略号
+@mixin setOverflowEllipsis($rowsize){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: #{$rowsize};
+    text-overflow: -o-ellip1sis-lastline;
+    -webkit-box-orient: vertical;
+}

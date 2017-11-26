@@ -209,7 +209,7 @@
 	}
 	.div_class_Grid {
     display: flex;
-	align-items: stretch;
+	align-items: flex-start;
     font-size: $fontsize;
     margin: 0.4rem 0;
     .div_class_GridCol_Col6{
