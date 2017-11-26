@@ -21,7 +21,7 @@ import filterList from './filterList'
 		},
 		mounted(){
 			let height = document.documentElement.clientHeight;
-			let width = document.documentElement.clientWidth - 80;
+			let width = document.documentElement.clientWidth - 55;
 			document.getElementById('popup_id_RightSize').style.width = width + "px";
 			document.getElementById('popup_id_RightSize').style.height = height + "px";
 		},
