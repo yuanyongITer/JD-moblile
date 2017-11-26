@@ -1,10 +1,16 @@
 <template>
 	<div id="div_GoodsRating">
 		<div class="div_class_buttons">
-			<button class="btn_item btn_active">全部 773</button>
-			<button class="btn_item">好评 744</button>
-			<button class="btn_item">中评 11</button>
-			<button class="btn_item">差评 18</button>
+			<!-- <div class="div_class_Grid">
+				<div class="div_class_GridCol_Col6">
+	              	<span v-show="$index == clickedAddressIndex">√</span>
+	            </div>
+	            <button class="btn_item">√ 全部 821</button>
+			</div> -->
+			
+			<!-- <button class="btn_item">√ 好评 744</button>
+			<button class="btn_item">√ 中评 11</button>
+			<button class="btn_item">√ 差评 18</button> -->
 		</div>
 		<div v-infinite-scroll="loadMore" :infinite-scroll-disabled="loading" infinite-scroll-distance="10">
 			<div class="div_class_Grid div_class_ratingBox" v-for="n in num">
@@ -131,7 +137,7 @@
 		border-bottom: 1px solid #F1F1F1;
     }
     .btn_item{
-    	padding: 0.3rem 0.7rem;
+    	padding: 0.3rem 0.5rem;
     	border: 1px solid red;
     	border-radius: 5px;
     	background: #FFA07A;
