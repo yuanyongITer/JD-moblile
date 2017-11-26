@@ -1,9 +1,8 @@
 <template>
 	<div class="div_class_goodsRotation">
 		 <div class="div_class_pagination">{{message}}/{{sumMessage}}</div> 
-		<slider :pages="pages" :sliderinit="sliderinit" class="slider_class_slider" @slide="slide">
+		<slider :pages="pages" :sliderinit="sliderinit" class="slider_class_slider" @slide="slide" id="size">
 		</slider>
-		<div></div>
 	</div>
 </template>
 
@@ -18,19 +17,28 @@
 				
 				pages: [{
 						style: {
-							'backgroundImage': 'url(static/img1.jpg)'
+							'backgroundImage': 'url(static/img1.jpg)',
+							'backgroundSize':'80% !important',
+							'backgroundRepeat':'no-repeat'
+							
 						}
 					},{
 						style: {
-							'backgroundImage': 'url(static/img1.jpg)'
+							'backgroundImage': 'url(static/img1.jpg)',
+							'backgroundSize':'100%'
+							
 						}
 					},{
 						style: {
-							'backgroundImage': 'url(static/img1.jpg)'
-						},
+							'backgroundImage': 'url(static/img1.jpg)',
+							'backgroundSize':'100%'
+							 
+						}
 					},{
 						style: {
-							'backgroundImage': 'url(static/img1.jpg)'
+							'backgroundImage': 'url(static/img1.jpg)',
+							'backgroundSize':'100%'
+							
 						}
 					}
 				],
@@ -50,7 +58,10 @@
 		mounted() {
 			this.sumMessage = this.pages.length;
 			this.message = this.sliderinit.currentPage + 1;
-
+            if(document.getElementById('size').style.height>2054)
+            {
+            	document.getElementById('size').style.height=2054;
+            }
 		},
 		methods: {
 			slide(data) {
@@ -61,26 +72,23 @@
 </script>
 <style scoped>
 	.div_class_goodsRotation {
-		display: -webkit-flex;
 		display: flex;
 		width: 100%;
 		margin: 0;
 		height: 20rem;
-		padding: 0;
 		align-items: center;
 		justify-content: center;
-		margin-top:3.2rem;
+		margin-top:46px;
 	}
 	
-	.slider_class_slider {
+	/*.slider_class_slider {
 		opacity: 1;
 		width: 100%;
-		order:2;
 		margin: 0px;
-		padding: 0px;
 		height: 20rem;
 		align-self:center;
-	}
+		padding:0px;
+	}*/
 	.div_class_pagination {
 		position: absolute;
 		width: 2.5rem;
@@ -89,7 +97,6 @@
 		justify-content: center;
 		color: white;
 		background-color:#B3B3B3;
-		order: 1;
 		z-index: 2;
 		align-self:center;
 		display: flex;
@@ -98,5 +105,16 @@
 	.slider-container{
 		position: static;
 		z-index: 0;
+	}
+	/*.slider-item {
+		background-position: 50% !important;
+        background-size: 80% !important;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+	}*/
+	.slider-container{
+		max-height:320px;
+		height: 100%;
+		max-width: 400px;
 	}
 </style>
