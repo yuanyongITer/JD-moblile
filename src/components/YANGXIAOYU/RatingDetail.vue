@@ -9,13 +9,13 @@
 		<div v-infinite-scroll="loadMore" :infinite-scroll-disabled="loading" infinite-scroll-distance="10">
 			<div class="div_class_Grid div_class_ratingBox" v-for="n in num">
 				<div class="div_class_GridCol_Col6">
-					<!-- <img src="./assets/img/peisong.jpg" class="userImg"> -->
+					<img src="../../../static/info_all_peisong.jpg" class="userImg">
 				</div>
 				<div class="div_class_GridCol_Colcenter div_class_ratingText">
 					<div class="div_class_userInfo">
 						<div class="p_class_margin">
 							<p>令*****龙 <mt-badge size="small" color="#888">PLUS</mt-badge></p>
-							<p class="all_class_Hightlight_Red">
+							<p class="all_class_Hightlight_Red p_class_margin">
 								<span  v-for="(star,index) in 5">★</span>
 							</p>
 						</div>
@@ -26,12 +26,12 @@
 					<div class="div_class_GridCol_Col100">
 						<p class="p_class_margin">物流速度很快，一大早就收到了，试用了一下午，说说感觉吧，我是把我的5S换了，5用了3年了，手机很流畅就是电池待机不行，一天充好几回。关注8很久了，由于价格太高一直没下手，刚好前几天华为美十也上了，去看过，确实不错，有想入手的冲动，可是这两天关注8的时候看到京东优惠蛮大的，就果断入手了。屏幕确实大，像我这样的大手单手操作都感觉有些难，机子很流畅，用惯了苹果所以感觉很不错，就是希望待机能好一点。不过今天我设置的时候有几次卡顿，直接卡退出了，不知道是怎么回事。等用段时间再来评论用后效果。</p>
 						<div class="div_class_ActualPicture">
-							<!-- <img src="../../assets/yxyImg/info_all_good.jpg" class="imgItem">
-							<img src="../../assets/yxyImg/info_all_good.jpg" class="imgItem">
-							<img src="../../assets/yxyImg/info_all_good.jpg" class="imgItem">
-							<img src="../../assets/yxyImg/info_all_good.jpg" class="imgItem">
-							<img src="../../assets/yxyImg/info_all_good.jpg" class="imgItem">
-							<img src="../../assets/yxyImg/info_all_good.jpg" class="imgItem"> -->
+							<img src="../../../static/info_all_good.jpg" class="imgItem">
+							<img src="../../../static/info_all_good.jpg" class="imgItem">
+							<img src="../../../static/info_all_good.jpg" class="imgItem">
+							<img src="../../../static/info_all_good.jpg" class="imgItem">
+							<img src="../../../static/info_all_good.jpg" class="imgItem">
+							<img src="../../../static/info_all_good.jpg" class="imgItem">
 						</div>
 						<p class="p_class_goodsSize">金色 , 64GB</p>
 					</div>
