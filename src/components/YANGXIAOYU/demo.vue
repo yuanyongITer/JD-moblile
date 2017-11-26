@@ -1,7 +1,7 @@
 <template>
   <div class='div_class_ShopDetail'>
     <!--顶部-->
-    <mt-navbar class="div_class_NavBar" v-model="selected" fixed>
+    <mt-navbar class="div_class_NavBar" v-model="selected" >
       <i class="iconfont icon-left-copy"></i>
       <mt-tab-item id="div_id_Good">商品</mt-tab-item>
       <mt-tab-item id="div_id_GoodDetail">详情</mt-tab-item>
@@ -72,7 +72,10 @@
   .div_class_NavBar{
     display: flex;
     align-items: center;
-    z-index: 101;
+    z-index: 101 ;
+    position: fixed;
+    top: 0;
+    width: 100%;
     i{
       width: 2.5rem;
     }

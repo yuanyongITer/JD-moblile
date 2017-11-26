@@ -49,11 +49,8 @@
         <div class="div_class_GoodChoice">
           <p class="p_class_Title">颜色</p>
           <div class="div_class_Flow">
-            <div class="div_class_Cart div_class_FlowCol "
-                :class='{all_class_Cliked_Red:coloritem == clickedColor}' 
-                v-for="coloritem in colorList" :key="coloritem"
-                @click="getColorChoose(coloritem)"
-            >
+            <div class="div_class_Cart div_class_FlowCol " :class='{all_class_Cliked_Red:coloritem == clickedColor}' v-for="coloritem in colorList"
+              :key="coloritem" @click="getColorChoose(coloritem)">
               {{coloritem}}
             </div>
           </div>
@@ -62,11 +59,8 @@
         <div class="div_class_GoodChoice">
           <p class="p_class_Title">版本</p>
           <div class="div_class_Flow">
-            <div class="div_class_Cart div_class_FlowCol "
-                :class='{all_class_Cliked_Red:typeitem == clickedType}' 
-                v-for="typeitem in typeList" :key="typeitem"
-                @click="getTypeChoose(typeitem)"
-            >
+            <div class="div_class_Cart div_class_FlowCol " :class='{all_class_Cliked_Red:typeitem == clickedType}' v-for="typeitem in typeList"
+              :key="typeitem" @click="getTypeChoose(typeitem)">
               {{typeitem}}
             </div>
           </div>
@@ -75,11 +69,8 @@
         <div class="div_class_GoodChoice">
           <p class="p_class_Title">选择套餐</p>
           <div class="div_class_Flow">
-            <div class="div_class_Cart div_class_FlowCol "
-                :class='{all_class_Cliked_Red:suititem == clickedSuit}' 
-                v-for="suititem in suitList" :key="suititem"
-                @click="getSuitChoose($index)"
-            >
+            <div class="div_class_Cart div_class_FlowCol " :class='{all_class_Cliked_Red:suititem == clickedSuit}' v-for="suititem in suitList"
+              :key="suititem" @click="getSuitChoose($index)">
               {{suititem}}
             </div>
           </div>
@@ -88,19 +79,16 @@
         <div class="div_class_GoodChoice">
           <p class="p_class_Title">购买方式</p>
           <div class="div_class_Flow">
-            <div class="div_class_Cart div_class_FlowCol "
-                :class='{all_class_Cliked_Red:purchaseitem == clikedPurchaseMode}' 
-                v-for="purchaseitem in purchaseModeList" :key="purchaseitem"
-                @click="getPurchaseModeChoose(purchaseitem)"
-            >
+            <div class="div_class_Cart div_class_FlowCol " :class='{all_class_Cliked_Red:purchaseitem == clikedPurchaseMode}' v-for="purchaseitem in purchaseModeList"
+              :key="purchaseitem" @click="getPurchaseModeChoose(purchaseitem)">
               {{purchaseitem}}
             </div>
           </div>
         </div>
-          <div class="div_class_Grid">
-              <div class="p_class_Title">数量</div>
-              <div class="">计数器</div>
-          </div>
+        <div class="div_class_Grid">
+          <div class="p_class_Title">数量</div>
+          <div class="">计数器</div>
+        </div>
       </div>
       <div class="all_class_Footer">
         <mt-button type="danger" class="div_class_FooterBtn">加入购物车</mt-button>
@@ -114,102 +102,72 @@
     data() {
       return {
         popupVisible: false,
-        clickedColor:'极光蓝',
-        clickedType:'全网通(6GB 64GB)',
-        clickedSuit:'官方标配',
-        clikedPurchaseMode:'官方标配',
-        colorList:['极光蓝', '幻夜黑', '宝石蓝', '璀璨绿'],
-        typeList:['全网通(6GB 64GB)', '全网通(6GB 128GB)', '全网通(4GB 64GB)'],
-        suitList:['官方标配'],
-        purchaseModeList:['官方标配', '电信-买手机省话费', '移动-买手机省话费', '移动-老用户优惠机', '联通—买手机送话费'],
+        clickedColor: '极光蓝',
+        clickedType: '全网通(6GB 64GB)',
+        clickedSuit: '官方标配',
+        clikedPurchaseMode: '官方标配',
+        colorList: ['极光蓝', '幻夜黑', '宝石蓝', '璀璨绿'],
+        typeList: ['全网通(6GB 64GB)', '全网通(6GB 128GB)', '全网通(4GB 64GB)'],
+        suitList: ['官方标配'],
+        purchaseModeList: ['官方标配', '电信-买手机省话费', '移动-买手机省话费', '移动-老用户优惠机', '联通—买手机送话费'],
       }
     },
     methods: {
       handleClick() {
         this.popupVisible = true
       },
-      getColorChoose(data){
+      getColorChoose(data) {
         this.clickedColor = data;
       },
-      getTypeChoose(data){
+      getTypeChoose(data) {
         this.clickedType = data;
       },
-      getSuitChoose(data){
+      getSuitChoose(data) {
         this.clickedSuit = data;
       },
-      getPurchaseModeChoose(data){
+      getPurchaseModeChoose(data) {
         this.clikedPurchaseMode = data;
-      } 
+      }
     }
   }
 
 </script>
 <style lang='scss'>
   $hightlightcolor:red;
-  $infocolor:#a7a7a2;
-  $bordercolor:#e1eef6;
+  $infocolor:#4d4d4c;
+  $bordercolor:rgba(192, 192, 189, 0.2);
   $fontsize:0.8rem;
   /*自定义样式*/
-  .div_class_GoodsInfo{
-    .div_class_Grid:nth-child(3){
-      padding:0.5rem 0;
-      border-top:1px solid $bordercolor;
-    }
-  }
-  
 
-  /*网格布局*/
-  .div_class_Grid {
-    display: flex;
-    align-items: flex-start;
-    font-size: $fontsize;
-    margin: 0.4rem 0;
-    .div_class_GridCol_Col6 {
-      //col6 表示占6/100 的宽度
-      flex: 0 0 6%;
-    }
-    .div_class_GridCol_Col20 {
-      flex: 0 0 20%;
-    }
-    .div_class_GridCol_Col33 {
-      flex: 0 0 33%;
-    }
-    .div_class_GridCol_Col66 {
-      flex: 0 0 66%;
-    }
-    .div_class_GridCol_Col48 {
-      flex: 0 0 48%;
-    }
-    .div_class_GridCol_Col100 {
-      //col100 表示占 100/100的宽度 即全屏
-      flex: 0 0 100%;
-    }
-    .div_class_GridCol_Colcenter {
-      //未单独固定宽度的,宽度均为自动撑开
-      flex: 1;
-      padding: 0 0.6rem; //作为中间元素保持左右间距
+  .div_class_GoodsInfo {
+    .div_class_Grid:nth-child(3) {
+      padding: 0.5rem 0;
+      border-top: 1px solid $bordercolor;
     }
   }
   /*流布局*/
-  .div_class_Flow{
+
+  .div_class_Flow {
     display: flex;
-    flex:1;
+    flex: 1;
     flex-flow: row wrap;
     align-content: flex-start;
     font-size: $fontsize;
-    .div_class_FlowCol{
+    .div_class_FlowCol {
       box-sizing: border-box;
       white-space: nowrap;
       flex: 0 0 45%;
       margin: 0.2rem;
-      padding: 0.1rem  0.5rem ;
+      padding: 0.1rem 0.5rem;
     }
   }
   /*公共样式*/
+
   .div_class_Rowhead {
     white-space: nowrap;
     color: $infocolor;
   }
+
   .all_class_Hightlight_Red {
     //高亮的部分 比如说红色
     color: $hightlightcolor;
@@ -218,13 +176,13 @@
       background: $hightlightcolor;
       border: 1px solid $hightlightcolor;
     }
-  }
-  //后期考虑提成函数,若无需边框则边框参数为0
-  .all_class_Cliked_Red{
-    color:$hightlightcolor;
-    border:1px solid $hightlightcolor !important;
+  } //后期考虑提成函数,若无需边框则边框参数为0
+  .all_class_Cliked_Red {
+    color: $hightlightcolor;
+    border: 1px solid $hightlightcolor !important;
   }
   /*弹出框*/
+
   .div_class_Popup {
     width: 100%;
     height: 70%;
@@ -263,11 +221,12 @@
         font-size: $fontsize;
         margin: 0.5rem 0;
       }
-      .div_class_Cart{
+      .div_class_Cart {
         text-align: center;
         border: 1px solid $infocolor;
       }
-      .div_class_Grid{//重写样式 双项目骰子式
+      .div_class_Grid {
+        //重写样式 双项目骰子式
         display: flex;
         justify-content: space-between;
       }
