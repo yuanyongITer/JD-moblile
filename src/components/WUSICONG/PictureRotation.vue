@@ -1,6 +1,6 @@
 <template>
 	<div class="div_class_goodsRotation">
-		 <div class="div_class_pagination">{{message}}/{{sumMessage}}</div> 
+		 <div class="div_class_pagination">{{message}}/{{sumMessage}}</div>
 		<slider :pages="pages" :sliderinit="sliderinit" class="slider_class_slider" @slide="slide">
 		</slider>
 		<div></div>
@@ -15,7 +15,7 @@
 		},
 		data() {
 			return {
-				
+
 				pages: [{
 						style: {
 							'backgroundImage': 'url(static/img1.jpg)'
@@ -71,7 +71,7 @@
 		justify-content: center;
 		margin-top:3.2rem;
 	}
-	
+
 	.slider_class_slider {
 		opacity: 1;
 		width: 100%;

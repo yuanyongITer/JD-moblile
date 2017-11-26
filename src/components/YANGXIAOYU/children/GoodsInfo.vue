@@ -145,22 +145,7 @@
       border-top: 1px solid $bordercolor;
     }
   }
-  /*流布局*/
 
-  .div_class_Flow {
-    display: flex;
-    flex: 1;
-    flex-flow: row wrap;
-    align-content: flex-start;
-    font-size: $fontsize;
-    .div_class_FlowCol {
-      box-sizing: border-box;
-      white-space: nowrap;
-      flex: 0 0 45%;
-      margin: 0.2rem;
-      padding: 0.1rem 0.5rem;
-    }
-  }
   /*公共样式*/
 
   .div_class_Rowhead {
