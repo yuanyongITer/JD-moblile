@@ -8,20 +8,25 @@
 /*
 灰度系列：
 		1. 背景颜色：   colorBgGray
-		2. 领券 + 已选  colorInfoGray
+		2. 领券 + 已选  gcolorGray
 		3. 评论灰色   colorGrayLight-1
-		4. 边框颜色	
+		4. 边框颜色
 			深度系	 colorGrayLight-1
 			浅色系	 colorGrayLight-2
 		灰色程度：colorInfoGray > colorGrayLight-1 > colorGrayLight-2
 */
-$gcolorBgGray:#f6f6f6 !default;/*默认 背景颜色*/
-$gcolorInfoGray:#4d4d4c !default;/*默认灰色 normal*/
-$gcolorGrayLight-1:#a7a7a2 !default; /*默认灰色 浅灰*/
-$gcolorGrayLight-2:rgba(192,192,189,0.2) !default;  /*默认灰色 浅浅灰*/
-/*高亮色*/
+//默认 背景颜色
+$gcolorBgGray:#F0F2F5 ;
+//默认灰色 normal
+$gcolorGray:#81838e !default;
+//默认灰色 浅灰
+$gcolorGrayLight-1:#a7a7a2 !default;
+//默认灰色 浅浅灰
+$gcolorGrayLight-2:#bdbec0 !default;
+//高亮色
 $gcolorHighlightRed:red;
-
+//蓝色
+$gcolorBlueLight:#e1eef6;
 /* font-family
 -------------------------- */
 $gfontfamily:'Microsoft YaHei' !default;
