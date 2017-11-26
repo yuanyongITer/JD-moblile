@@ -61,6 +61,7 @@
 </script>
 <style scoped>
 	.div_class_bigAll {
+		z-index: 100;
 		display: -webkit-flex;
 		display: flex;
 		width: 100%;

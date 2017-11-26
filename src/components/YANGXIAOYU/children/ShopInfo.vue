@@ -7,7 +7,7 @@
     <div class="all_class_Header">
       <div class="div_class_Grid">
         <div class="div_class_GridCol_Col33">
-          <img src="../assets/img/shopbg.jpg">
+          <img src="../../../../static/info_all_shopbg.jpg">
         </div>
         <div class="div_class_GridCol_Col33">
           <p>荣耀京东自营旗舰店<i class="iconfont icon-ziying all_class_Hightlight_Red"></i></p>
@@ -34,11 +34,11 @@
     <div class="all_class_Footer">
       <div class="div_class_Grid">
         <div class="div_class_GridCol_Col48">
-          <i class="iconfont icon-a536"></i>
+          <i class="iconfont icon-iconmoban"></i>
           <span>联系供应商</span>
         </div>
         <div class="div_class_GridCol_Col48">
-          <i class="iconfont icon-weibiaoti-"></i>
+          <i class="iconfont icon-dianpu"></i>
           <span>进店逛逛</span>
         </div>
       </div>

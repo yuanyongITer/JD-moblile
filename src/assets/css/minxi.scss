@@ -1,6 +1,4 @@
-$blue: #3190e8;  
-$bc: #e4e4e4;
-$fc:#fff;
+
 //字体大小、行高、字体
 @mixin font($size, $line-height, $family: 'Microsoft YaHei') {  
 	font: #{$size}/#{$line-height} $family;
