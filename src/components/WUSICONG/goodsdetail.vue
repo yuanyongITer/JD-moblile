@@ -1,50 +1,53 @@
-<template>
-  <div class="all_class_flex">
-  	<div class="first_class_flex">
-  		<div class='firstDiv_class_oneTab' v-bind:class="{'active':oneActive}">商品介绍</div>
-  		<div class="firstDiv_class_midTab" v-bind:class="{'active':twoActive}">规格参数</div>
-  		<div class='firstDiv_class_secondTab'v-bind:style="{'active':threeActive}">包装售后</div>
-  	</div>
-  </div>
-</template>
-<script>
-	export default{
-		data() {
-			return{
-				oneActive:false,
-				twoActive:false,
-				threeActive:false,
-			}
-		},
-		mounted() {
-			this.oneActive = true;
-		},
-	}
-</script>
-<style scoped>
-	.all_class_flex
-	{
-		display: flex;
-		flex-direction: column;
-	}
-	.first_class_flex 
-	{
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-content:stretch;
-		flex-grow: 1;
-		padding: 0.5rem 0 0.5rem 0;
-	}
-	.firstDiv_class_oneTab{
-		margin-left: 2rem;
-	}
-	.firstDiv_class_secondTab{
-		margin-right: 2rem;
-	}
-	.firstDiv_class_midTab{
-	}
-	.active{
-		color: red;
-	}
-</style>
+    <template>  
+      <div class="page-navbar">   
+        <!-- navbar -->  
+        <mt-navbar class="page-part" v-model="selected">  
+          <mt-tab-item id="1">选项一</mt-tab-item>  
+          <mt-tab-item id="2">选项二</mt-tab-item>  
+          <mt-tab-item id="3">选项三</mt-tab-item>  
+        </mt-navbar>  
+        <!-- tabcontainer -->  
+        <mt-tab-container v-model="selected">  
+          <mt-tab-container-item id="1">  
+            <div class="firstPage_class_flex">
+            	<div class="div_class_flex"><span></span>商品信息<span></span></div>
+            	<div class="div_class_image"></div>
+            	<div></div>
+            </div>
+          </mt-tab-container-item>  
+          <mt-tab-container-item id="2">  
+          </mt-tab-container-item> 
+          <mt-tab-container-item id="3">  
+          </mt-tab-container-item>  
+        </mt-tab-container>  
+      </div>  
+    </template>  
+      
+    <script>  
+    export default {  
+      name: 'page-navbar',  
+      data() {  
+        return {  
+          selected: '1',  
+        };  
+      }  
+    };  
+    </script>  
+    <style scoped>
+    	.first_class_flex{
+    		display: flex;
+    		flex-direction: column;
+    		align-content: center;
+    	}
+    	.div_class_flex{
+    		display: flex;
+    		justify-content:space-between ;
+    	}
+    	.left_class_line{
+    		border:4px,0,0,0;
+    		border-style: solid;
+    	}
+    	.div_class_image{
+    		background-image: url('/static/img1.jpg');
+    	}
+    </style>
