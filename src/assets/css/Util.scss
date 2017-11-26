@@ -2,11 +2,10 @@
 *   公共样式函数
 */
 
-/*高亮色*/
-$gcolorHighlightRed:red;
 
+@import './Minxi.scss';
 //字体大小、行高、字体
-@mixin setFont($size, $line-height, $family: 'Microsoft YaHei') {  
+@mixin setFont($size, $line-height, $family: 'Microsoft YaHei') {
 	font: #{$size}/#{$line-height} $family;
 }
 
@@ -22,12 +21,18 @@ $gcolorHighlightRed:red;
 	height: $height;
 }
 
+//flex 布局和 子元素 对其方式
+@mixin setFjustify($type){
+	display: flex;
+	justify-content: $type;
+
+}
 
 //高亮函数
 @mixin setHighLight($bordersize){
     color:$gcolorHighlightRed;
     //background: $gcolorHighlightRed;
-    border: #{$bordersize} solid $gcolorHighlightRed;
+    border: #{$bordersize} solid $gcolorHighlightRed !important;
 }
 
 //文本超出XX行省略号

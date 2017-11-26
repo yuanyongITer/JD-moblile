@@ -4,13 +4,13 @@
 -->
 <template>
     <div class="div_class_GoodsRank">
-        <mt-navbar v-model="selected">  
-            <mt-tab-item id="div_id_Recommend">为你推荐</mt-tab-item>  
-            <mt-tab-item id="div_id_Rank">排行榜</mt-tab-item>  
-        </mt-navbar>  
-        <!-- tabcontainer -->  
-        <mt-tab-container v-model="selected">  
-            <mt-tab-container-item id="div_id_Recommend">  
+        <mt-navbar v-model="selected">
+            <mt-tab-item id="div_id_Recommend">为你推荐</mt-tab-item>
+            <mt-tab-item id="div_id_Rank">排行榜</mt-tab-item>
+        </mt-navbar>
+        <!-- tabcontainer -->
+        <mt-tab-container v-model="selected">
+            <mt-tab-container-item id="div_id_Recommend">
                 <div class="div_class_Grid">
                     <div class=" div_class_GridCol_Col33 " v-for="n in 6" :key="n">
                         <img src="../../../../static/info_all_good.jpg">
@@ -18,8 +18,8 @@
                         <p class="p_class_Money">￥2688.00</p>
                     </div>
                 </div>
-            </mt-tab-container-item>  
-            <mt-tab-container-item id="div_id_Rank">  
+            </mt-tab-container-item>
+            <mt-tab-container-item id="div_id_Rank">
                 <div class="div_class_Grid">
                     <div class=" div_class_GridCol_Col33 " v-for="n in 4" :key="n">
                         <img src="../../../../static/info_all_good.jpg">
@@ -27,8 +27,8 @@
                         <p class="p_class_Money">￥2688.00</p>
                     </div>
                 </div>
-            </mt-tab-container-item>  
-        </mt-tab-container>  
+            </mt-tab-container-item>
+        </mt-tab-container>
     </div>
 </template>
 <script>
@@ -42,7 +42,7 @@
 
 </script>
 <style lang="scss">
-  $fontsize:0.8rem;
+@import '../../../assets/css/Util.scss';
 .div_class_GoodsRank{
     margin-top: 0.5rem;
     .div_class_Grid{
@@ -50,21 +50,19 @@
         display: flex;
         text-align: center;
         img{
-            width: 80%;
-            height: 80%;
+          @include setWH(80%,80%);
+        }
+        p{
+          width: 90%;
+          margin: auto;
         }
     }
     .p_class_Money{
         font-weight: bold;
     }
     .p_class_Intro{
-        font-size: $fontsize - 0.2rem ;
-        overflow: hidden;
-        text-overflow: -o-ellipsis-lastline;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
+        font-size: $gfontsizeMini;
+        @include setOverflowEllipsis(1);
     }
 }
 

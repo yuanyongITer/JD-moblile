@@ -1,8 +1,7 @@
 /**
     记录公共样式
 **/
-
-$gcolorGrayLight-1:#a7a7a2 !default;
+@import './Minxi.scss';
 
 /*公共样式*/
 
@@ -10,4 +9,27 @@ $gcolorGrayLight-1:#a7a7a2 !default;
 .span_class_HasNoMore {
   color: $gcolorGrayLight-1;
   text-align: center;
+}
+
+//解决移动端1px略粗的问题
+//使用时加上 all_class_Border1px类名
+.all_class_Border1px{
+  height:1px;
+  background:transparent;
+  -webkit-transform: scaleY(0.5);
+  -webkit-transform-origin:0 0;
+  overflow: hidden;
+}
+.all_class_Border1px::after{
+  content: '';
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid $gcolorGrayLight-2;
+  border-radius: 4px;
+  -webkit-transform: scale(0.5,0.5);
+  transform: scale(0.5,0.5);
+  -webkit-transform-origin: top left;
 }
