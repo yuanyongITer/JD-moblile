@@ -1,33 +1,37 @@
 <template>
 	<div>
 		<div class="div_class_Grid">
-			<div class="div_class_GridCol_Col25" v-for="(item,index) in buttonGrop" :key="index">{{item.label}}<i :class="item.icon"></i></div>
+			<div class="div_class_GridCol_Col25">综合<i class="iconfont icon-arrow-right"></i></div>
+			<div class="div_class_GridCol_Col25">销量</div>
+			<div class="div_class_GridCol_Col25">价格<i class="iconfont icon-touzantongpiao-copy"></i></div>
+			<div class="div_class_GridCol_Col25" @click="openSideBar">筛选<i class="iconfont icon-loudoulianxirenxiangqing"></i></div>
 		</div>
-		<i class="icon-ziying"></i>
+		<mt-popup v-model="popupVisible" position="right" id="popup_id_RightSize">
+			<filterList></filterList>
+		</mt-popup>
 	</div>
 </template>
 <script type="text/javascript">
+import filterList from './filterList'
 	export default{
 		data(){
 			return{
-				buttonGrop:[
-				{
-					label:"综合",
-					icon:"icon-jiantouxia"
-				},
-				{
-					label:"销量",
-				},
-				{
-					label:"价格",
-					icon:"icon-ziying"
-				},
-				{
-					label:"筛选",
-					icon:"icon-touzantongpiao"
-				}
-				]
+				popupVisible:false,
 			}
+		},
+		mounted(){
+			let height = document.documentElement.clientHeight;
+			let width = document.documentElement.clientWidth - 80;
+			document.getElementById('popup_id_RightSize').style.width = width + "px";
+			document.getElementById('popup_id_RightSize').style.height = height + "px";
+		},
+		methods:{
+			openSideBar(){
+				this.popupVisible = true;
+			}
+		},
+		components:{
+			filterList
 		}
 	}
 </script>
