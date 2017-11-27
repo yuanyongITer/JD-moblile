@@ -49,7 +49,7 @@
 				allLoad:false,
 				allLoaded:false,
 				num:4,
-				isDouble:true,
+				isDouble:false,
 			}
 		},
 		components:{
@@ -65,7 +65,11 @@
 		},
 		methods:{
 			detailedIntroduction(){
+<<<<<<< HEAD
 				this.$router.push('/test');
+=======
+				 this.$router.push('/test');
+>>>>>>> e25575f466f3524ecef70ee8e9fab4948a58a806
 			},
 			loadMore() {
 				let _this = this;
@@ -209,7 +213,7 @@
 	}
 	.div_class_Grid {
     display: flex;
-	align-items: flex-start;
+	align-items:stretch;
     font-size: $fontsize;
     margin: 0.4rem 0;
     .div_class_GridCol_Col6{

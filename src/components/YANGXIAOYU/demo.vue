@@ -2,7 +2,7 @@
   <div class='div_class_ShopDetail'>
     <!--顶部-->
     <mt-navbar class="div_class_NavBar" v-model="selected" >
-      <i class="iconfont icon-left-copy"></i>
+      <i class="iconfont icon-left-copy" @click="goBack()"></i>
       <mt-tab-item id="div_id_Good">商品</mt-tab-item>
       <mt-tab-item id="div_id_GoodDetail">详情</mt-tab-item>
       <mt-tab-item id="div_id_GoodRating">评价</mt-tab-item>
@@ -63,7 +63,9 @@
 
     },
     methods: {
-
+      goBack(){
+        this.$router.push('/demo');
+      }
     },
   }
 

@@ -6,7 +6,6 @@
 		<div></div>
 	</div>
 </template>
-
 <script>
 	import slider from 'vue-concise-slider' // 引入slider组件
 	export default {
