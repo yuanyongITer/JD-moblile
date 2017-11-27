@@ -20,6 +20,7 @@
         领券立减200！低至2499！纤薄机身，2K屏,双镜头,强劲芯片,你想要的快~荣耀爆款立省700！选品质，购荣耀>>>>>
       </div>
     </div>
+    <div class="all_class_Border1px"></div>
     <div class="div_class_Grid">
       <div class=" div_class_GridCol_Col6 div_class_Rowhead">
         已选
@@ -31,6 +32,7 @@
         <i class="iconfont icon-gengduo" @click="handleClick"></i>
       </div>
     </div>
+     <div class="all_class_Border1px"></div>
     <!-- 弹出框 -->
     <mt-popup v-model="popupVisible" position="bottom" class="div_class_Popup">
       <div class="all_class_Header">
@@ -44,6 +46,7 @@
           </div>
         </div>
       </div>
+      <div class="all_class_Border1px"></div>
       <div class="all_class_Content">
         <!-- 颜色 -->
         <div class="div_class_GoodChoice">
@@ -87,7 +90,9 @@
         </div>
         <div class="div_class_Grid">
           <div class="p_class_Title">数量</div>
-          <div class="">计数器</div>
+          <div class="">
+              <!-- <input type="text" class="inputbox"> -->
+          </div>
         </div>
       </div>
       <div class="all_class_Footer">
@@ -128,99 +133,99 @@
       getPurchaseModeChoose(data) {
         this.clikedPurchaseMode = data;
       }
+    },
+    watch:{
+      popupVisible:{
+        handler(){
+          if(this.popupVisible){
+            //弹出框启用 禁用页面的滚动
+            document.body.style.overflow = 'hidden';
+          }else{
+            document.body.style.overflow = 'auto';
+          }
+        }
+      }
     }
   }
 
 </script>
 <style lang='scss'>
-  $hightlightcolor:red;
-  $infocolor:#4d4d4c;
-  $bordercolor:rgba(192, 192, 189, 0.2);
-  $fontsize:0.8rem;
+  @import '../../../assets/css/Util.scss';
+  @import '../../../assets/css/Common.scss';
   /*自定义样式*/
-
   .div_class_GoodsInfo {
     .div_class_Grid:nth-child(3) {
       padding: 0.5rem 0;
-      border-top: 1px solid $bordercolor;
     }
   }
-
   /*公共样式*/
-
   .div_class_Rowhead {
     white-space: nowrap;
-    color: $infocolor;
+    color: $gcolorGray;
   }
-
   .all_class_Hightlight_Red {
-    //高亮的部分 比如说红色
-    color: $hightlightcolor;
+    color: $gcolorHighlightRed;
     .icon-ziying {
+      @include setHighLight(1px);
       color: #fff;
-      background: $hightlightcolor;
-      border: 1px solid $hightlightcolor;
+      background: $gcolorHighlightRed;
     }
-  } //后期考虑提成函数,若无需边框则边框参数为0
+  }
   .all_class_Cliked_Red {
-    color: $hightlightcolor;
-    border: 1px solid $hightlightcolor !important;
+     @include setHighLight(1px);
   }
   /*弹出框*/
-
   .div_class_Popup {
-    width: 100%;
-    height: 70%;
+    @include setWH(100%,70%);
     display: flex;
     flex-direction: column;
     .all_class_Header {
-      border-bottom: 1px solid #e1eef6;
       img {
-        width: 60px;
-        height: 80px;
+        @include setWH(60%,80%);
         margin-left: 0.4rem;
       }
       .div_class_Grid {
         //重写grid布局样式
-        display: flex;
-        justify-content: center;
+        @include setFjustify(center);
         align-items: center;
       }
-      p {
+      p{
         padding: 0.4rem 0;
       }
       p:first-child {
-        font-size: $fontsize+0.2rem;
+        font-size: $gfontsizeBig;
         font-weight: bold;
       }
     }
     .all_class_Content {
-      width: 90%;
+      @include setWH(90%,100%);
       min-height: 10rem;
       overflow-y: scroll;
       overflow-x: hidden; //禁用横向滚动条
       flex: 1; //让底部栏永远在底部
       margin: auto;
       .p_class_Title {
-        color: $infocolor;
-        font-size: $fontsize;
+        color: $gcolorGray;
+        font-size: $gfontsizeNormal;
         margin: 0.5rem 0;
       }
       .div_class_Cart {
+        padding: 0.3rem 0;
+        border-radius: 0.2rem;
         text-align: center;
-        border: 1px solid $infocolor;
+        border: 1px solid $gcolorGrayLight-2;
       }
       .div_class_Grid {
         //重写样式 双项目骰子式
-        display: flex;
-        justify-content: space-between;
+        @include setFjustify(space-between);
       }
     }
     .all_class_Footer {
       width: 100%;
       .div_class_FooterBtn {
         width: 100%;
-        font-size: $fontsize + 0.2rem;
+        font-size: $gfontsizeBig;
+        border-radius: 0 !important;
       }
     }
   }

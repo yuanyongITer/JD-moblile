@@ -21,11 +21,11 @@
           <p>154.4万</p>
           <p>关注人数</p>
         </div>
-        <div class="div_class_GridCol_Col33">
+        <div class="div_class_GridCol_Col33 ">
           <p>98</p>
           <p>全部商品</p>
         </div>
-        <div class="div_class_GridCol_Col33">
+        <div class="div_class_GridCol_Col33 ">
           <p>1</p>
           <p>店铺动态</p>
         </div>
@@ -59,22 +59,19 @@
 
 </script>
 <style lang="scss">
-$fontsize:0.8rem;
-$infocolor:#a7a7a2;
-$bordercolor:#e1eef6;
+@import '../../../assets/css/Util.scss';
+@import '../../../assets/css/Common.scss';
 .div_class_ShopInfo{
   img{
-    width: 80px;
-    height: 30px;
-    border: 1px solid $bordercolor;
+    @include setWH(80%,100%);
+    border: 1px solid $gcolorBlueLight;
   }
   .div_class_GridCol_Col33{
     p{
       white-space: nowrap;
     }
     p:nth-child(2){
-      font-size: $fontsize - 0.2rem;
-      color:$infocolor;
+      @include setSizeColor($gfontsizeMini,$gcolorGrayLight-1)
     }
   }
   .all_class_Content{
@@ -82,13 +79,13 @@ $bordercolor:#e1eef6;
       text-align: center;
     }
     .div_class_GridCol_Col33:nth-child(2){
-      border-left:1px solid $bordercolor;
-      border-right:1px solid $bordercolor;
+      border-left:1px solid $gcolorBlueLight;
+      border-right:1px solid $gcolorBlueLight;
     }
   }
   .all_class_Footer{
     .div_class_GridCol_Col48{
-      border: 1px solid $bordercolor;
+      border: 1px solid $gcolorBlueLight;
       padding:0.2rem 0;
       margin-right: 0.4rem;
       text-align: center;

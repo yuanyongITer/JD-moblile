@@ -27,21 +27,23 @@
       <div class="div_class_Grid">
         <div class="div_class_GridCol_Col100 p_class_Title">配送至</div>
       </div>
+      <div class="all_class_Border1px"></div>
       <div class="all_class_Content">
-        <div class="address" v-for="(addressitem,$index) in addressList" :key='addressitem'> 
-        <div class="div_class_Grid ":class='{all_class_clicked_noborder:$index == clickedAddressIndex}' 
-              :key='$index' @click="getAddressChoose($index)" 
-        >
-            <div class="div_class_GridCol_Col6">
-              <i class="iconfont icon-weibiaoti-"></i>
-            </div>
-            <div class=" div_class_GridCol_Colcenter">
-              {{addressitem}}
-            </div>
-            <div class="div_class_GridCol_Col6">
-              <span v-show="$index == clickedAddressIndex">√</span>
-            </div>
+        <div class="address" v-for="(addressitem,$index) in addressList" :key='addressitem'>
+          <div class="div_class_Grid ":class='{all_class_clicked_noborder:$index == clickedAddressIndex}'
+                :key='$index' @click="getAddressChoose($index)"
+          >
+              <div class="div_class_GridCol_Col6">
+                <i class="iconfont icon-weibiaoti-"></i>
+              </div>
+              <div class=" div_class_GridCol_Colcenter">
+                {{addressitem}}
+              </div>
+              <div class="div_class_GridCol_Col6">
+                <span v-show="$index == clickedAddressIndex">√</span>
+              </div>
           </div>
+          <div class="all_class_Border1px"></div>
         </div>
       </div>
       <div class="all_class_Footer">
@@ -82,37 +84,33 @@
 
 </script>
 <style lang="scss">
-  $bordercolor:#e1eef6;
-  $infocolor:#a7a7a2;
-  $hightlightcolor:red;
+  @import '../../../assets/css/Util.scss';
+  @import '../../../assets/css/Common.scss';
   .all_class_OverflowHidden {
-    overflow: hidden;
-    text-overflow: -o-ellipsis-lastline;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+    @include setOverflowEllipsis(1);
   }
   .all_class_clicked_noborder{
-    color:$hightlightcolor;
+     @include setHighLight(0);
   }
   .div_class_GoodsDelivery {
     padding:0.6rem 0;
-    border-top:1px solid $bordercolor;
-    border-bottom:1px solid $bordercolor;
     .p_class_Title {
       text-align: center;
-      color: $infocolor;
+      color: $gcolorGrayLight-1;
       padding-bottom: 0.5rem;
-      border-bottom: 1px solid $bordercolor;
     }
     .all_class_Content {
       width: 100%;
       .div_class_Grid{
-        border-bottom: 1px solid $bordercolor;
-        padding-bottom: 0.5rem;
+        padding: 0.2rem;
+        .div_class_GridCol_Colcenter{
+          margin-top: 0.2rem;
+        }
         i{
-          margin-left: 0.2rem;
+          margin-left:0.2rem;
+        }
+        span{
+          font-size:$gfontsizeBig;
         }
       }
     }
