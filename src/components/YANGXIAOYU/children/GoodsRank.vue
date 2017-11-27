@@ -45,6 +45,7 @@
 @import '../../../assets/css/Util.scss';
 .div_class_GoodsRank{
     margin-top: 0.5rem;
+    background: #FFF;
     .div_class_Grid{
         flex-wrap:wrap;
         display: flex;

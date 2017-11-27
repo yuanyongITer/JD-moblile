@@ -75,10 +75,12 @@
     @import '../../assets/css/Common.scss';
     .div_class_ShopDetail {
         width: 100%;
-        .div_class_ShopContent {
+        margin: auto;
+        background: $gcolorBgGray;
+        /*.div_class_ShopContent {
             width: 96%;
             margin: auto;
-        }
+        }*/
     }
     .div_class_NavBar{
         display: flex;
@@ -93,6 +95,6 @@
     }
     .div_class_Container{
         margin-top: 46px;
-        /*background: $gcolorBgGray;*/
+        /*margin-top: 40px;*/
     }
 </style>

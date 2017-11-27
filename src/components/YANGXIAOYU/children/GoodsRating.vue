@@ -49,7 +49,6 @@
 		        <span>购买咨询</span>
 		    </div>
 	    </div>
-	    <div class="all_class_Border1px"></div>
 	</div>
 </template>
 <script>
@@ -74,7 +73,7 @@
 	#div_GoodsRating{
 		font-size: 0.8rem;
 		margin-bottom: 0.5rem;
-		padding-bottom: 1rem;
+		padding: 0.5rem 0.5rem 0rem;
 		background: #ffffff;
 		.div_class_RatingLink{
 			@include setFjustify(space-between);
