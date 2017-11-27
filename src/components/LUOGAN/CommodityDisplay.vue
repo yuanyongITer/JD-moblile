@@ -65,11 +65,7 @@
 		},
 		methods:{
 			detailedIntroduction(){
-<<<<<<< HEAD
 				this.$router.push('/test');
-=======
-				 this.$router.push('/test');
->>>>>>> e25575f466f3524ecef70ee8e9fab4948a58a806
 			},
 			loadMore() {
 				let _this = this;

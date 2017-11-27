@@ -1,14 +1,14 @@
 import PictureRotation from '@/components/WUSICONG/PictureRotation'
-import goodsdetail from '@/components/WUSICONG/goodsdetail'
+import GoodsDetail from '@/components/WUSICONG/GoodsDetail'
 const activity = [{
 	path: '/picturerotation',
     name: 'PictureRotation',
     component:PictureRotation
 },
 {
-	path: '/goodsdetail',
-    name: 'goodsdetail',
-    component:goodsdetail
+	path: '/GoodsDetail',
+    name: 'GoodsDetail',
+    component:GoodsDetail
 }
 ]
 

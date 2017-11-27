@@ -9,7 +9,7 @@
       <i class="iconfont icon-gengduo"></i>
     </mt-navbar>
     <!-- tabcontainer -->
-    <mt-tab-container v-model="selected">
+    <mt-tab-container v-model="selected" class="div_class_Container">
       <mt-tab-container-item id="div_id_Good">
         <div class="div_class_ShopContent">
           <!--轮播图-->
@@ -27,13 +27,12 @@
         </div>
       </mt-tab-container-item>
       <mt-tab-container-item id="div_id_GoodDetail">
-
+          <GoodsDetail></GoodsDetail>
       </mt-tab-container-item>
       <mt-tab-container-item id="div_id_GoodRating">
 		    <RatingDetail></RatingDetail>
       </mt-tab-container-item>
     </mt-tab-container>
-
   </div>
 </template>
 <script type="text/javascript">
@@ -43,6 +42,7 @@
   import ShopInfo from './children/ShopInfo'
   import GoodsRank from './children/GoodsRank'
   import PictureRotation from '../WUSICONG/PictureRotation'
+  import GoodsDetail from '../WUSICONG/GoodsDetail'
   import RatingDetail from './RatingDetail'
   export default {
     components: {
@@ -52,7 +52,8 @@
       ShopInfo,
       GoodsRank,
       PictureRotation,
-      RatingDetail
+      RatingDetail,
+      GoodsDetail
     },
     data() {
       return {
@@ -78,9 +79,13 @@
     position: fixed;
     top: 0;
     width: 100%;
+
     i{
       width: 2.5rem;
     }
+  }
+  .div_class_Container{
+    margin-top: 46px;
   }
   .div_class_ShopDetail {
     width: 100%;
