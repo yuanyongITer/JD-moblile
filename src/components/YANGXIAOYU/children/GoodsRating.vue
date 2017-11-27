@@ -27,10 +27,11 @@
 					</p>
 				</div>
 			</div>
+
 			<div class="div_class_Grid">
 				<div class="div_class_GridCol_Col100">
 					<p class="p_class_Intro">物流速度很快，一大早就收到了，试用了一下午，说说感觉吧，我是把我的5S换了，5用了3年了，手机很流畅就是电池待机不行，一天充好几回。关注8很久了，由于价格太高一直没下手，刚好前几天华为美十也上了，去看过，确实不错，有想入手的冲动，可是这两天关注8的时候看到京东优惠蛮大的，就果断入手了。</p>
-					<div class="div_class_ActualPicture">
+          <div class="div_class_ActualPicture">
 						<img src="../../../../static/info_all_good.jpg" class="imgItem">
 						<img src="../../../../static/info_all_good.jpg" class="imgItem">
 						<img src="../../../../static/info_all_good.jpg" class="imgItem">
@@ -63,7 +64,8 @@
 		}
 	}
 </script>
-<style scoped>
+<style lang='scss'>
+  @import '../../../assets/css/Common.scss';
 	#div_GoodsRating{
 		font-size: 0.8rem;
 	}
@@ -123,7 +125,7 @@
 		display: flex;
 	    align-items: flex-start;
 	    flex-wrap: wrap;
-	    justify-content: space-between; 
+	    justify-content: space-between;
 	}
 	.imgItem{
 		width: 23%;

@@ -1,6 +1,6 @@
 import test from '@/components/YANGXIAOYU/demo'
 import RatingDetail from '@/components/YANGXIAOYU/RatingDetail.vue'
-import SiftTest from '@/components/YANGXIAOYU/children/SiftTest'
+import GoodFilter from '@/components/YANGXIAOYU/children/GoodFilter'
 const detail = [{
 	path: '/test',
     name: 'test',
@@ -10,9 +10,9 @@ const detail = [{
 	name: 'RatingDetail',
 	component:RatingDetail
 },{
-  path: '/sifttest',
-	name: 'SiftTest',
-	component:SiftTest
+  path: '/goodfilter',
+	name: 'GoodFilter',
+	component:GoodFilter
 }]
 
 module.exports = detail;

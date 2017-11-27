@@ -9,7 +9,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div v-infinite-scroll="loadMore" :infinite-scroll-disabled="loading" infinite-scroll-distance="10">
 			<div class="div_class_Grid div_class_ratingBox" v-for="n in num">
 				<div class="div_class_GridCol_Col6">
@@ -49,6 +48,7 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
 		<div v-if="allLoad" class="Nomore">
 			暂无更多数据
@@ -190,7 +190,7 @@
 		display: flex;
 	    align-items: flex-start;
 	    flex-wrap: wrap;
-	    justify-content: space-between; 
+	    justify-content: space-between;
 	}
 	.imgItem{
 		width: 30%;
@@ -204,7 +204,7 @@
 	.div_class_ratingFooter{
 		display: flex;
 	    align-items: flex-start;
-	    justify-content: space-between; 
+	    justify-content: space-between;
 	}
 	.p_class_goodsSize{
 		margin: 0.4rem;
