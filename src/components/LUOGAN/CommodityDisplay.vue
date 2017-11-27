@@ -58,14 +58,14 @@
 			topButton
 		},
 		mounted(){
-			
+
 		},
 		created(){
 			// this.loadData();
 		},
 		methods:{
 			detailedIntroduction(){
-				// this.$router.push('/test');
+				this.$router.push('/test');
 			},
 			loadMore() {
 				let _this = this;
@@ -158,7 +158,7 @@
 	.p_classSize{
 		line-height: 1.2rem;
 		font-size: $fontsize;
-		display: -webkit-box; 
+		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp:2;
 		overflow: hidden;
@@ -179,7 +179,7 @@
 	}
 	.span_classValue{
 		font-size: 1.0rem;
-		margin-left: 0.2rem; 
+		margin-left: 0.2rem;
 		color: $hightlightcolor;
 	}
 	.span_classShow{
@@ -195,13 +195,13 @@
 		margin-right: 0.4rem;
 		/*padding:0.05rem;*/
 		border: 1px solid $hightlightcolor;
-		color: $hightlightcolor; 
+		color: $hightlightcolor;
 	}
 	.span_classAppraise{
 		margin-left: 0.3rem;
 		font-size: 0.6rem;
 		color:$infocolor;
-		margin-right: 0.45rem; 
+		margin-right: 0.45rem;
 	}
 	.span_classData{
 		font-size: 0.6rem;
