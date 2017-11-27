@@ -70,7 +70,7 @@
 	.div_class_RatingLink{
 		display: flex;
 		justify-content: space-between;
-		padding: 0.5rem 0.3rem;
+		padding: 0rem 0.3rem 0.5rem;
 	}
 	.div_class_Center{
 		display: flex;

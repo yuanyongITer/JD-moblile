@@ -30,7 +30,7 @@
           <GoodsDetail></GoodsDetail>
       </mt-tab-container-item>
       <mt-tab-container-item id="div_id_GoodRating">
-		    <RatingDetail></RatingDetail>
+        <RatingDetail></RatingDetail>
       </mt-tab-container-item>
     </mt-tab-container>
   </div>

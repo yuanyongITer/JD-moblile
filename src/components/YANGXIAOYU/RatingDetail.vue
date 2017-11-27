@@ -1,5 +1,5 @@
 <template>
-	<div id="div_GoodsRating">
+	<div id="div_id_GoodsRating">
 		<div class="div_class_rateButtons">
 			<div v-for="(item,index) in RatingList" :key="index">
 				<div class="div_class_Grid btn_item" :class='{btn_active:index == clickedRatingIndex}' @click="getRateChoose(index)">
@@ -8,34 +8,37 @@
 		           	{{item}}
 				</div>
 			</div>
+			<div class="all_class_Border1px"></div>
 		</div>
 
-		<div v-infinite-scroll="loadMore" :infinite-scroll-disabled="loading" infinite-scroll-distance="10">
-			<div class="div_class_Grid div_class_ratingBox" v-for="n in num">
+		<div v-infinite-scroll="loadMore" :infinite-scroll-disabled="loading" infinite-scroll-distance="10" class="div_class_ratingContainer">
+			<div class="div_class_Grid" v-for="n in num">
 				<div class="div_class_GridCol_Col6">
 					<img src="../../../static/info_all_peisong.jpg" class="userImg">
 				</div>
 				<div class="div_class_GridCol_Colcenter div_class_ratingText">
 					<div class="div_class_userInfo">
 						<div class="p_class_margin">
-							<p>令*****龙 <mt-badge size="small" color="#888">PLUS</mt-badge></p>
-							<p class="all_class_Hightlight_Red p_class_margin">
+							<p class="p_class_userName">令*****龙
+								<mt-badge size="small" color="#888">PLUS</mt-badge>
+							</p>
+							<p class="all_class_Hightlight_Red">
 								<span  v-for="(star,index) in 5">★</span>
 							</p>
 						</div>
-						<dir class="div_class_InfoRight">
-							<p>2017-11-11</p>
-						</dir>
+						<p class="p_class_ratingTime">2017-11-11</p>
 					</div>
 					<div class="div_class_GridCol_Col100">
-						<p class="p_class_margin">物流速度很快，一大早就收到了，试用了一下午，说说感觉吧，我是把我的5S换了，5用了3年了，手机很流畅就是电池待机不行，一天充好几回。关注8很久了，由于价格太高一直没下手，刚好前几天华为美十也上了，去看过，确实不错，有想入手的冲动，可是这两天关注8的时候看到京东优惠蛮大的，就果断入手了。屏幕确实大，像我这样的大手单手操作都感觉有些难，机子很流畅，用惯了苹果所以感觉很不错，就是希望待机能好一点。不过今天我设置的时候有几次卡顿，直接卡退出了，不知道是怎么回事。等用段时间再来评论用后效果。</p>
+						<p class="p_class_margin">
+							物流速度很快，一大早就收到了，试用了一下午，说说感觉吧，我是把我的5S换了，5用了3年了，手机很流畅就是电池待机不行，一天充好几回。关注8很久了，由于价格太高一直没下手，刚好前几天华为美十也上了，去看过，确实不错，有想入手的冲动，可是这两天关注8的时候看到京东优惠蛮大的，就果断入手了。屏幕确实大，像我这样的大手单手操作都感觉有些难，机子很流畅，用惯了苹果所以感觉很不错，就是希望待机能好一点。不过今天我设置的时候有几次卡顿，直接卡退出了，不知道是怎么回事。等用段时间再来评论用后效果。
+						</p>
 						<div class="div_class_ActualPicture">
 							<img src="../../../static/info_all_good.jpg" class="imgItem">
 							<img src="../../../static/info_all_good.jpg" class="imgItem">
-							<img src="../../../static/info_all_good.jpg" class="imgItem">
-							<img src="../../../static/info_all_good.jpg" class="imgItem">
-							<img src="../../../static/info_all_good.jpg" class="imgItem">
-							<img src="../../../static/info_all_good.jpg" class="imgItem">
+							<!-- <img src="../../../static/info_all_good.jpg" class="imgItem">
+							<img src="../../../static/info_all_good.jpg" class="imgItem"> -->
+							<!-- <img src="../../../static/info_all_good.jpg" class="imgItem">
+							<img src="../../../static/info_all_good.jpg" class="imgItem"> -->
 						</div>
 						<p class="p_class_goodsSize">金色 , 64GB</p>
 					</div>
@@ -49,8 +52,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="all_class_Border1px"></div>
 		</div>
-		<div v-if="allLoad" class="Nomore">
+		<div v-if="allLoad" class="div_class_HasNoMore">
 			暂无更多数据
 		</div>
 	</div>
@@ -105,67 +109,49 @@
 		}
 	}
 </script>
-<style scoped>
-	.div_class_Grid {
-	    display: flex;
-	    align-items: flex-start;
-	    font-size: 0.8rem;
-	    margin: 0.4rem 0;
-	}
-	.div_class_GridCol_Col6 {
-      flex: 0 0 6%;
-    }
-    .div_class_GridCol_Col33{
-      flex: 0 0 33%;
-    }
-    .div_class_GridCol_Col66{
-      flex: 0 0 66%;
-    }
-    .div_class_GridCol_Col100 {
-      flex: 0 0 100%;
-    }
-    .div_class_GridCol_Colcenter {
-      flex:1;
-      padding: 0 0.6rem;
-    }
-    .all_class_Hightlight_Red{
-    	color: red;
-    }
-
-    #div_GoodsRating{
-    	margin-top: 2.5rem;
-    }
+<style lang="scss" scoped>
+	@import '../../assets/css/Util.scss';
+  	@import '../../assets/css/Common.scss';
+  	#div_id_GoodsRating{
+  		background: $gcolorBgGray;
+  	}
     /*评价类型按钮的样式*/
     .div_class_rateButtons{
-    	display: flex;
-		justify-content: space-around;
-		padding: 0.8rem 0 0.7rem;
-		border-bottom: 1px solid #F1F1F1;
+    	@include setFjustify(space-around);
+		padding:0.8rem 0rem 0.7rem;
+		margin-bottom: 0.5rem;
+		background: #FFFFFF;
     }
     .btn_item{
     	padding: 0.2rem 0.5rem;
-    	border: 1px solid red;
+    	border: 1px solid #FBBBB9;
     	border-radius: 5px;
-    	background: #FFA07A;
+    	background: #FEEEEE;
     }
     .btn_active{
-    	background: #FFF;
+    	background: #FFFFFF;
     	color: red;
     }
 
     /*评价详情的样式*/
-    .div_class_ratingBox{
-    	border-bottom: 1px solid #F1F1F1;
-    	margin-bottom: 1rem;
-    }
-    .div_class_ratingText{
-    	padding-left: 1.3rem;
+    .div_class_ratingContainer{
+    	border-top: 1px solid #F1F1F1;
+    	background: #FFFFFF;
     }
     .div_class_userInfo{
-    	display: flex;
-    	justify-content: space-between;
+    	@include setFjustify(space-between);
     	margin: 0.3rem;
     }
+    .p_class_userName{
+    	font-size: $gfontsizeMini;
+    }
+    .p_class_ratingTime{
+    	display: flex;
+		align-self: center;
+    	font-size: $gfontsizeSmall;
+    	color: $gcolorGrayLight-2;
+    	padding-right: 0.2rem;
+	}
 	.userImg{
 		width: 2rem;
 		height: 2rem;
@@ -174,44 +160,33 @@
 		overflow:hidden;
 	}
 	.p_class_margin{
-		margin: 0.3rem;
+		line-height: 1.3rem;
 	}
-	.p_class_userInfo{
-		display: flex;
-		justify-content: space-between;
-	}
-	.div_class_InfoRight{
-		display: flex;
-		align-self: center;
-	}
-
+	
 	/*用户上传的实物图*/
 	.div_class_ActualPicture{
-		display: flex;
+		@include setFjustify(space-between);
 	    align-items: flex-start;
 	    flex-wrap: wrap;
-	    justify-content: space-between; 
 	}
 	.imgItem{
 		width: 30%;
 	}
-	.icon-unie60b:hover,
-	.icon-pinglun:hover{
-		color: red;
-	}
 
 	/*商品规格样式*/
 	.div_class_ratingFooter{
-		display: flex;
+		@include setFjustify(space-between);
 	    align-items: flex-start;
-	    justify-content: space-between; 
 	}
 	.p_class_goodsSize{
-		margin: 0.4rem;
-		color: #c1c1c1;
+		font-size: $gfontsizeSmall;
+		line-height: 1.5rem;
+		color: $gcolorGrayLight-2;
 	}
 
-	.Nomore{
-		text-align: center;
+	/*点赞*/
+	.icon-unie60b:hover,
+	.icon-pinglun:hover{
+		color: red;
 	}
 </style>
