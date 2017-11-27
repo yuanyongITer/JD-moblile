@@ -130,23 +130,6 @@
 		line-height: 16px;
 	}
 	
-	.bdr-t {
-		position: relative;
-	}
-	
-	.bdr-t::before {
-		position: absolute;
-		content: '';
-		-webkit-transform: scaleY(.5);
-		transform: scaleY(.5);
-		top: -1px;
-		left: 0;
-		width: 100%;
-		height: 1px;
-		border-top: 1px solid #e3e5e9;
-		z-index: 10;
-	}
-	
 	.div_class_saleServiceTitle {
 		text-align: center;
 		position: relative;
