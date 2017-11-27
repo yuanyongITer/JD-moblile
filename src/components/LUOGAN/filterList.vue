@@ -45,7 +45,7 @@
 				event = window.event || arguments.callee.caller.arguments[0];
 				let obj = event.srcElement || event.target;
 				console.log(event);
-				console.log(obj.parent);
+				console.log(obj);
 			},
 	  		MoreColor(flag,index){
 				// let _this = this;
@@ -56,7 +56,7 @@
 					document.getElementById(this.dataList[index].id).style.height = height+"px";
 					document.getElementById(this.dataList[index].id).overflow = "auto";
 				} else {
-					document.getElementById(this.dataList[index].id).style.height = 10+"px";
+					document.getElementById(this.dataList[index].id).style.height = 5+"px";
 					document.getElementById(this.dataList[index].id).overflow = "hidden";
 				}
 	  		},
