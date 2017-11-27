@@ -50,8 +50,8 @@
         display: flex;
         text-align: center;
         img{
-            width: 60px;
-            height:80px;
+            width: 80%;
+            height: 80%;
         }
     }
     .p_class_Money{

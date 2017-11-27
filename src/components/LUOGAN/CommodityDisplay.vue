@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<topButton></topButton>
 		<div v-if="isDouble" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20" @click="detailedIntroduction">
 			<div class="div_classDoubleLeft" v-for="(item,index) in num" :key="index">
 				<img src="../../assets/Lg_img/iphone8.jpg" class="img_classDouble">
@@ -39,6 +40,7 @@
 	</div>
 </template>
 <script type="text/javascript">
+	import topButton from './CommodityDisplayTopButton'
 	import { Indicator,Toast } from 'mint-ui';
 	export default{
 		data() {
@@ -47,12 +49,13 @@
 				allLoad:false,
 				allLoaded:false,
 				num:4,
-				isDouble:false
+				isDouble:true,
 			}
 		},
 		components:{
 			Indicator,
-			Toast
+			Toast,
+			topButton
 		},
 		mounted(){
 			
@@ -206,7 +209,7 @@
 	}
 	.div_class_Grid {
     display: flex;
-	align-items: stretch;
+	align-items: flex-start;
     font-size: $fontsize;
     margin: 0.4rem 0;
     .div_class_GridCol_Col6{
