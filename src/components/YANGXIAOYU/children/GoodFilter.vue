@@ -105,7 +105,7 @@ import axios from 'axios'
     },
     methods:{
       getgoodChoose(data){
-        axios.get(' https://easy-mock.com/mock/5a14e463faa2dc7ac23f5481/example/goodchoose')
+        axios.get('  https://easy-mock.com/mock/5a1bf55b74e00f187e2d4620/skydotMobile/goodchoose')
         .then(response =>{
           console.log(response.data);
         })

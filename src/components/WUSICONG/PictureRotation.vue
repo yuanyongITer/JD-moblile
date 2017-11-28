@@ -68,7 +68,7 @@
 		padding: 0;
 		align-items: center;
 		justify-content: center;
-		margin-top:3.2rem;
+		margin-top:1.2rem;
 	}
 
 	.slider_class_slider {

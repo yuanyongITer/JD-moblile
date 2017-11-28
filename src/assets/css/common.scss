@@ -6,9 +6,10 @@
 /*公共样式*/
 
 //下拉加载之没有更多了
-.span_class_HasNoMore {
+.div_class_HasNoMore {
   color: $gcolorGrayLight-1;
   text-align: center;
+  margin: 0.5rem auto;
 }
 
 //解决移动端1px略粗的问题
