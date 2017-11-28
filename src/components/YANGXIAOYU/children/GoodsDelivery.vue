@@ -93,7 +93,10 @@
      @include setHighLight(0);
   }
   .div_class_GoodsDelivery {
-    padding:0.6rem 0;
+    background: #FFF;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #DDD;
+    padding:0.5rem;
     .p_class_Title {
       text-align: center;
       color: $gcolorGrayLight-1;

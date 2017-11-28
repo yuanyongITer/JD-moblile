@@ -62,6 +62,8 @@
 @import '../../../assets/css/Util.scss';
 @import '../../../assets/css/Common.scss';
 .div_class_ShopInfo{
+  background: #FFF;
+  padding: 0.5rem;
   img{
     @include setWH(80%,100%);
     border: 1px solid $gcolorBlueLight;
