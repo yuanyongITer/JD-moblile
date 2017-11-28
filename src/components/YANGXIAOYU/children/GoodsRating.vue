@@ -9,10 +9,10 @@
 			<div>
 				好评度&nbsp;&nbsp;
 				<span>97%</span>
-				<i class="iconfont icon-arrow-right"></i>
+				<i class="iconfont icon-arrow-right"  @click="ToMoreRating()"></i>
 			</div>
 		</div>
-		<div class="div_class_ratingContent" v-for="item in num" :key="item">
+		<div class="div_class_ratingContent" v-for="item in 3" :key="item" @click="ToMoreRating()">
 			<div class="all_class_Border1px"></div>
 			<div class="div_class_Grid">
 				<div class="div_class_GridCol_Col6">
@@ -56,14 +56,16 @@
 		name:'div_GoodsRating',
 		data(){
 			return {
-				num:3
+				id:true
 			}
 		},
 		created(){
 
 		},
 		methods:{
-
+			ToMoreRating(){
+				this.$emit('returnTabID','div_id_GoodRating');
+			}
 		}
 	}
 </script>

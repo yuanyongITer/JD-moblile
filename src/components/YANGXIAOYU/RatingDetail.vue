@@ -4,7 +4,7 @@
 			<div v-for="(item,index) in RatingList" :key="index">
 				<div class="div_class_Grid btn_item" :class='{btn_active:index == clickedRatingIndex}' @click="getRateChoose(index)">
 					<span v-if="index == clickedRatingIndex" style="color: red;">√</span>
-		           	<span v-else style="color: #FFA07A;">√</span>
+		           	<span v-else style="color: #FEEEEE;">√</span>
 		           	{{item}}
 				</div>
 			</div>

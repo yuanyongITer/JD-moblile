@@ -62,8 +62,19 @@
         font-weight: bold;
     }
     .p_class_Intro{
+        color: $gcolorGray;
         font-size: $gfontsizeMini;
-        @include setOverflowEllipsis(1);
+        @include setOverflowEllipsis(2);
+    }
+    .mint-tab-item{
+        padding: 10px 0;
+        color: $gcolorGray;
+        font-size: $gfontsizeNormal;
+    }
+    .mint-navbar .mint-tab-item.is-selected{
+        margin-bottom: 0;
+        border: none;
+        color: $gcolorHighlightRed;
     }
 }
 

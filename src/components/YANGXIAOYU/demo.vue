@@ -8,18 +8,19 @@
             <mt-tab-item id="div_id_GoodRating">评价</mt-tab-item>
             <i class="iconfont icon-gengduo"></i>
         </mt-navbar>
+        <div class="all_class_Border1px"></div>
         <!-- tabcontainer -->
         <mt-tab-container v-model="selected" class="div_class_Container">
             <mt-tab-container-item id="div_id_Good">
+                <!--轮播图-->
+                <PictureRotation></PictureRotation>
                 <div class="div_class_ShopContent">
-                    <!--轮播图-->
-                    <PictureRotation></PictureRotation>
                     <!--商品信息-->
                     <GoodsInfo></GoodsInfo>
                     <!--商品规格及配送-->
                     <GoodsDelivery></GoodsDelivery>
                     <!--商品评价-->
-                    <GoodsRating></GoodsRating>
+                    <GoodsRating @returnTabID="getTabID"></GoodsRating>
                     <!--店铺信息组件-->
                     <ShopInfo></ShopInfo>
                     <!--为你推荐商品或排行榜-->
@@ -66,6 +67,9 @@
         methods: {
             goBack(){
                 this.$router.push('/demo');
+            },
+            getTabID(ID){
+                this.selected = ID;
             }
         },
     }
@@ -75,12 +79,26 @@
     @import '../../assets/css/Common.scss';
     .div_class_ShopDetail {
         width: 100%;
-        margin: auto;
-        background: $gcolorBgGray;
-        /*.div_class_ShopContent {
-            width: 96%;
+        .div_class_ShopContent {
+            background: $gcolorBgGray;
+            /*width: 96%;*/
             margin: auto;
-        }*/
+        }
+        .mint-navbar{
+            .mint-tab-item{
+                .mint-tab-item-label{
+                    font-size: $gfontsizeNormal;
+                }
+            }
+            .is-selected{
+                margin-bottom: -2px;
+                border-bottom: 2px solid #000;
+                color: #000;
+                .mint-tab-item-label{
+                    font-size: 0.9rem;
+                }
+            }
+        }
     }
     .div_class_NavBar{
         display: flex;
@@ -95,6 +113,5 @@
     }
     .div_class_Container{
         margin-top: 46px;
-        /*margin-top: 40px;*/
     }
 </style>
