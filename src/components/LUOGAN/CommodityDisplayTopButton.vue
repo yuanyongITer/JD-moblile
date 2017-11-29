@@ -19,11 +19,19 @@ import filterList from './filterList'
 				popupVisible:false,
 			}
 		},
+		watch:{
+			popupVisible(value){
+				if(value)
+					document.body.style.overflow = "hidden";
+				else
+					document.body.style.overflow = "auto";
+			}
+		},
 		mounted(){
 			let height = document.documentElement.clientHeight;
 			let width = document.documentElement.clientWidth - 55;
 			document.getElementById('popup_id_RightSize').style.width = width + "px";
-			document.getElementById('popup_id_RightSize').style.height = height + "px";
+			// document.getElementById('popup_id_RightSize').style.height = height + "px";
 		},
 		methods:{
 			openSideBar(){
@@ -36,6 +44,10 @@ import filterList from './filterList'
 	}
 </script>
 <style scoped lang = 'scss'>
+	#popup_id_RightSize{
+		height: 100vh;
+		overflow-y: scroll;
+	}
 	$hightlightcolor:red;
     $fontsize:0.8rem;
     $infocolor:#a7a7a2;
