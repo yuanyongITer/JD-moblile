@@ -5,129 +5,131 @@ jiy
   @date:2017/11//27
 -->
 <template>
-  <div class="div_class_GoodFilter">
-    <!-- 颜色 -->
-    <div class="div_class_GoodChoice" v-for="gooditem in goodlist" :key="gooditem.id">
-      <p class="p_class_Title">{{gooditem.name}}</p>
-      <div class="div_class_Flow">
-          <div class="div_class_Cart div_class_FlowCol "
-            :class='{all_class_Cliked_Red:subitem.subname == subitem.value}'
-            v-for="subitem in gooditem.submennu" :key="subitem.subid"
-            @click = 'getgoodChoose(subitem)'
-            >
-            {{subitem.subname}}
-          </div>
-        </div>
-    </div>
-  </div>
+	<div class="div_class_GoodFilter">
+		<!-- 颜色 -->
+		<div class="div_class_GoodChoice" v-for="item in goodchooseList" :key="item.id">
+			<div class="div_class_Grid">
+				<div class=" div_class_GridCol_Col6 div_class_Rowhead">
+					{{item.name}}
+				</div>
+				<div class="div_class_GridCol_Colcenter">
+					<p class="all_class_OverflowHidden">
+						<span
+							v-for="subitem in item.submennu" :key="subitem.subid"
+							v-if= "subitem.subid == subitem.value"
+						>
+							{{subitem.subname+","}}
+						</span>
+					</p>
+				</div>
+				<div class=" div_class_GridCol_Col6 div_class_Rowhead" @click='getUnFold(item)'>
+					<i class="iconfont icon-icon" v-if="item.id == isFoldid"></i>
+					<i class="iconfont icon-icon-xia" v-else></i>
+				</div>
+			</div>
+			<div class="div_class_Flow" :class='{all_class_Fold:item.id == isFoldid}'>
+				<div class="div_class_Cart div_class_FlowCol "
+					:class='{all_class_Cliked_Red:subitem.subid == subitem.value}'
+					v-for="subitem in item.submennu"
+				    :key="subitem.subid" @click='getgoodChoose(subitem,item)'>
+					{{subitem.subname}}
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 <script>
-import axios from 'axios'
-  export default {
-    data() {
-      return {
-        goodlist: [{
-            id: '0',
-            name: '配送至',
-            submennu: [{
-              subid: '00',
-              subname: '京东配送',
-              value:'',
-            }, {
-              subid: '01',
-              subname: '京尊达',
-               value:'',
-            }, {
-              subid: '02',
-              subname: '货到付款',
-              value:'',
-            }, {
-              subid: '03',
-              subname: '仅看有货',
-              value:'',
-            }]
-          }, {
-            id: '1',
-            name: '价格区间',
-            submennu: [{
-              subid: '10',
-              subname: '459-1319',
-              value:'',
-            }, {
-              subid: '11',
-              subname: '236-44',
-              value:'',
-            }, {
-              subid: '12',
-              subname: '335-565',
-              value:'',
-            }, {
-              subid: '13',
-              subname: '456-879',
-              value:'',
-            }]
-          }, {
-            id: '2',
-            name: '品牌',
-            submennu: [{
-              subid: '20',
-              subname: '华硕',
-              value:'',
-            }, {
-              subid: '21',
-              subname: '技嘉',
-              value:'',
-            }, {
-              subid: '22',
-              subname: '七彩虹',
-              value:'',
-            }]
-          }, {
-            id: '3',
-            name: 'NIVDA芯片',
-            submennu: [{
-              subid: '30',
-              subname: 'GT730',
-              value:'',
-            }, {
-              subid: '31',
-              subname: 'GTX750',
-              value:'',
-            }, {
-              subid: '32',
-              subname: 'GT1030',
-              value:'',
-            }]
-          },
-
-        ]
-      }
-    },
-    methods:{
-      getgoodChoose(data){
-        axios.get('  https://easy-mock.com/mock/5a1bf55b74e00f187e2d4620/skydotMobile/goodchoose')
-        .then(response =>{
-          console.log(response.data);
-        })
-        if(data.value ==''){
-          data.value = data.subname
-        }else{
-          data.value = '';
-        }
-      }
-    }
-  }
+	import axios from 'axios'
+	export default {
+		data() {
+			return {
+				goodchooseList: '',
+				chosedList: '',
+				isFoldid:null//当前展开的id号
+			}
+		},
+		mounted() {
+			axios.get('https://easy-mock.com/mock/5a1bf55b74e00f187e2d4620/skydotMobile/goodfilter')
+				.then(response => {
+					response.data.forEach(element => {
+						element.submennu.forEach(subelement => {
+							subelement.value = ' ';
+						});
+					})
+					this.goodchooseList = response.data;
+				})
+		},
+		methods: {
+			getgoodChoose(subdata, data) {
+				let chosedCount = 0;
+				//每次点击时先遍历同栏子元素的个数
+				data.submennu.forEach(item => {
+					if (item.value == item.subid) {
+						chosedCount++;
+					}
+				})
+				/**@augments
+				 * 如果当前元素是可选择的 那么判断现在是否超过了5个
+				 * 		超过了=>return
+				 * 		未超过 =>正常事件
+				 * 如果当前事件是不可选的
+				 */
+				if(subdata.value == ' '){
+					if(chosedCount >= 5){
+						this.showMsg();
+						return;
+					}else{
+						subdata.value = subdata.subid;
+					}
+				}else{
+					subdata.value = ' ';
+				}
+			},
+			getUnFold(data){
+				//目前来说只能同时展开一个
+				if(this.isFoldid == data.id){
+					this.isFoldid = null;
+					return;
+				}
+				this.isFoldid = data.id;
+			},
+			showMsg() {
+				this.$toast({
+					message: '筛选个数不能超过5个哦~',
+					position: 'center',
+					duration: 1000
+				})
+			}
+		}
+	}
 
 </script>
 <style lang="scss">
-  @import '../../../assets/css/Util.scss';
-  .div_class_Cart {
-    padding: 0.3rem 0;
-    border-radius: 0.2rem;
-    text-align: center;
-    border: 1px solid $gcolorGrayLight-2;
-  }
-  .all_class_Cliked_Red {
-     @include setHighLight(1px);
-  }
+	@import '../../../assets/css/Util.scss';
+	.div_class_GoodFilter{
+		@include setWH(96%,100%);
+		margin:0 auto ;
+	}
+	.div_class_Rowhead {
+		white-space: nowrap;
+		color: $gcolorGray;
+	}
+	.all_class_OverflowHidden {
+		@include setOverflowEllipsis(1);
+	}
+	.div_class_Cart {
+		padding: 0.3rem 0;
+		border-radius: 0.2rem;
+		text-align: center;
+		border: 1px solid $gcolorGrayLight-2;
+	}
+
+	.all_class_Cliked_Red {
+		@include setHighLight(1px);
+	}
+	//折叠状态
+	.all_class_Fold{
+		height:2rem;
+		overflow:hidden;
+	}
 </style>
