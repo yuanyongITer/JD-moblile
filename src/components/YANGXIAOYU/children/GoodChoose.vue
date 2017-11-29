@@ -11,7 +11,12 @@
 				已选
 			</div>
 			<div class=" div_class_GridCol_Colcenter">
-				{{chosedList.join(" ")}}{{' '+num}}件
+				<span v-for='item in chosedList' :key='item.title'>
+					{{item.data+"  "}}
+				</span>
+				<span>
+					{{num}}件
+				</span>
 			</div>
 		</div>
 		<!-- 颜色 版本 选择套餐 购买方式 -->
@@ -21,7 +26,8 @@
 				<p class="p_class_Title">{{item.name}}</p>
 				<div class="div_class_Flow">
 					<div class="div_class_Cart div_class_FlowCol" v-for='subitem in item.submennu' :key='subitem.subid' :class='{all_class_Cliked_Red:subitem.subid == subitem.value}'
-					    @click='getGoodChoose(subitem,item)'>
+						@click='getGoodChoose(subitem,item,"submennu","subid")'
+					>
 						{{subitem.subname}}
 					</div>
 				</div>
@@ -46,7 +52,9 @@
 						<i class="iconfont icon-guanzhu"></i>{{subitem.subname}}</p>
 					<div class="div_class_Flow">
 						<div class="div_class_Cart div_class_FlowCol" v-for='minitem in subitem.minmennu' :key='minitem.minid' :class='{all_class_Cliked_Red:minitem.minid == minitem.value}'
-						    @click='getServiceChoose(minitem,subitem)'>
+							@click='getGoodChoose(minitem,subitem,"minmennu","minid")'
+						>
+							<!-- @click='getGoodChoose(minitem,subitem,'minmennu','minid')' -->
 							{{minitem.minname+' '}}|{{' '+minitem.minprice}}
 						</div>
 					</div>
@@ -91,32 +99,21 @@
 				})
 		},
 		methods: {
-			getGoodChoose(subdata, data) {
+			//之后写递归
+			getGoodChoose(subdata,data,menuname,idname){
+				//cosnole.log(data[menuname]);
 				//每次点击先清空 然后赋值
-				data.submennu.forEach(item => {
+				data[menuname].forEach(item=>{
 					//置空除被点击元素以外同栏的其他元素
-					if (item.subid != subdata.subid) {
-						item.value = ' ';
-					}
-				});
-				//判断当前元素是否是高亮状态
-				if (subdata.value == ' ') {
-					subdata.value = subdata.subid;
-				} else { //如果是高亮状态  那么再次点击则是取消选择
-					subdata.value = ' ';
-				}
-				this.getAllChosed();
-			},
-			getServiceChoose(mindata, subdata) {
-				subdata.minmennu.forEach(item => {
-					if (item.minid != mindata.minid) {
+					if(item[idname] != subdata[idname]){
 						item.value = ' ';
 					}
 				})
-				if (mindata.value == ' ') {
-					mindata.value = mindata.minid;
-				} else { //如果是高亮状态  那么再次点击则是取消选择
-					mindata.value = ' ';
+				//判断当前元素是否是高亮状态
+				if(subdata.value == ' '){
+					subdata.value = subdata[idname];
+				}else{
+					subdata.value = ' ';
 				}
 				this.getAllChosed();
 			},
@@ -127,13 +124,13 @@
 				this.goodchooseList.forEach(item => {
 					item.submennu.forEach(subelement => {
 						if (subelement.value == subelement.subid) {
-							this.chosedList.push(subelement.subname);
+							this.chosedList.push({'title':item.name,'data':subelement.subname})
 						}
 						/************怎么优化*************** */
 						if (subelement.minmennu != undefined) {
 							subelement.minmennu.forEach(minelement => {
 								if (minelement.value == minelement.minid) {
-									this.chosedServiceList.push(minelement.minname + " " + minelement.minprice);
+									this.chosedServiceList.push({'title':item.name,'data':minelement.minname+ " " + minelement.minprice});
 								}
 							})
 						}
@@ -155,7 +152,9 @@
 		white-space: nowrap;
 		color: $gcolorGray;
 	}
-
+	.all_class_OverflowHidden {
+		@include setOverflowEllipsis(1);
+	}
 	.div_class_Cart {
 		padding: 0.3rem 0;
 		border-radius: 0.2rem;
