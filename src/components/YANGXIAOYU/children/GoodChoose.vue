@@ -54,7 +54,6 @@
 						<div class="div_class_Cart div_class_FlowCol" v-for='minitem in subitem.minmennu' :key='minitem.minid' :class='{all_class_Cliked_Red:minitem.minid == minitem.value}'
 							@click='getGoodChoose(minitem,subitem,"minmennu","minid")'
 						>
-							<!-- @click='getGoodChoose(minitem,subitem,'minmennu','minid')' -->
 							{{minitem.minname+' '}}|{{' '+minitem.minprice}}
 						</div>
 					</div>
@@ -66,6 +65,9 @@
 </template>
 <script>
 	import axios from 'axios'
+	import singleList from '../ChooseList'
+
+	let newSingle = singleList;
 	export default {
 		data() {
 			return {
@@ -76,68 +78,15 @@
 			}
 		},
 		mounted() {
-			axios.get('https://easy-mock.com/mock/5a1bf55b74e00f187e2d4620/skydotMobile/goodchoose')
-				.then(response => {
-					// this.goodchooseList.forEach(element => {
-					// 	element.submennu.forEach(subelement => {
-					// 		subelement.value = ' ';
-					// 	});
-					// });
-					//给子菜单加上value属性
-					response.data.forEach(element => {
-						element.submennu.forEach(subelement => {
-							subelement.value = ' ';
-							//如果有三级菜单 /**********优化****/
-							if (subelement.minmennu != undefined) {
-								subelement.minmennu.forEach(minelement => {
-									minelement.value = ' ';
-								})
-							}
-						});
-					})
-					this.goodchooseList = response.data;
-				})
+			newSingle.initData('/goodchoose');
+			this.goodchooseList =  newSingle.goodchooseList;
 		},
 		methods: {
-			//之后写递归
 			getGoodChoose(subdata,data,menuname,idname){
-				//cosnole.log(data[menuname]);
-				//每次点击先清空 然后赋值
-				data[menuname].forEach(item=>{
-					//置空除被点击元素以外同栏的其他元素
-					if(item[idname] != subdata[idname]){
-						item.value = ' ';
-					}
-				})
-				//判断当前元素是否是高亮状态
-				if(subdata.value == ' '){
-					subdata.value = subdata[idname];
-				}else{
-					subdata.value = ' ';
-				}
-				this.getAllChosed();
-			},
-			getAllChosed() {
-				//每次先清空汇总数组
-				this.chosedList = [];
-				this.chosedServiceList = [];
-				this.goodchooseList.forEach(item => {
-					item.submennu.forEach(subelement => {
-						if (subelement.value == subelement.subid) {
-							this.chosedList.push({'title':item.name,'data':subelement.subname})
-						}
-						/************怎么优化*************** */
-						if (subelement.minmennu != undefined) {
-							subelement.minmennu.forEach(minelement => {
-								if (minelement.value == minelement.minid) {
-									this.chosedServiceList.push({'title':item.name,'data':minelement.minname+ " " + minelement.minprice});
-								}
-							})
-						}
-					});
-				})
+				newSingle.getGoodChoose(subdata,data,menuname,idname,this.goodchooseList);
+				this.chosedList = newSingle.chosedList;
+				this.chosedServiceList = newSingle.chosedServiceList;
 			}
-
 		}
 	}
 
