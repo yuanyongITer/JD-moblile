@@ -27,6 +27,7 @@
 					<i class="iconfont icon-icon-xia" v-else></i>
 				</div>
 			</div>
+
 			<div class="div_class_Flow" :class='{all_class_Fold:item.id == isFoldid}'>
 				<div class="div_class_Cart div_class_FlowCol "
 					:class='{all_class_Cliked_Red:subitem.subid == subitem.value}'
@@ -68,13 +69,13 @@
 				newMulti.getUnFold(data);
 				this.isFoldid = newMulti.isFoldid;
 			},
-			showMsg() {
-				this.$toast({
-					message: '筛选个数不能超过5个哦~',
-					position: 'center',
-					duration: 1000
-				})
-			}
+			// showMsg() {
+			// 	this.$toast({
+			// 		message: '筛选个数不能超过5个哦~',
+			// 		position: 'center',
+			// 		duration: 1000
+			// 	})
+			// }
 		}
 	}
 
