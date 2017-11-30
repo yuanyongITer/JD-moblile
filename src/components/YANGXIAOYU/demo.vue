@@ -13,7 +13,7 @@
         <mt-tab-container v-model="selected" class="div_class_Container">
             <mt-tab-container-item id="div_id_Good">
                 <!--轮播图-->
-                <PictureRotation></PictureRotation>
+                <Swipe></Swipe>
                 <div class="div_class_ShopContent">
                     <!--商品信息-->
                     <GoodsInfo></GoodsInfo>
@@ -42,8 +42,8 @@
     import GoodsRating from './children/GoodsRating'
     import ShopInfo from './children/ShopInfo'
     import GoodsRank from './children/GoodsRank'
-    import PictureRotation from '../WUSICONG/PictureRotation'
     import GoodsDetail from '../WUSICONG/GoodsDetail'
+    import Swipe from '../WUSICONG/Swipe'
     import RatingDetail from './RatingDetail'
     export default {
         components: {
@@ -52,9 +52,9 @@
             GoodsRating,
             ShopInfo,
             GoodsRank,
-            PictureRotation,
             RatingDetail,
-            GoodsDetail
+            GoodsDetail,
+            Swipe
         },
         data() {
             return {
