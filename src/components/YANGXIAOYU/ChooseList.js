@@ -36,9 +36,9 @@ let basicUrl = 'https://easy-mock.com/mock/5a1bf55b74e00f187e2d4620/skydotMobile
 class ChooseList {
 	constructor(props) {
 		this.goodchooseList = new Object(),
-			this.chosedList = new Array(),
-			this.chosedServiceList = new Array(),
-			Object.assign(this, props);
+		this.chosedList = new Array(),
+		this.chosedServiceList = new Array(),
+		Object.assign(this, props);
 		return this;
 	}
 	//1. 初始化数据 => 从远程获取数据
@@ -113,48 +113,50 @@ class ChooseList {
  * 		1. 重写 getGoodChoose() 方法
  * 		=> 因为涉及到 最多选XX个的问题
  * 		   如果大于XX 返回一个XX
- *
  * 		2. getUnFold() //展开折叠事件
  */
-// class MultiChooseList extends ChooseList{
-// 	constructor(props){
-// 		super();
-// 		this.isFoldid = null,
-// 		Object.assign(this,pros);//Object.assign方法用于对象的合并
-//         return this;
-// 	}
-// 	getGoodChoose(subdata, data){
-// 		let chosedCount = 0;
-// 		//每次点击时先遍历同栏子元素的个数
-// 		data.submennu.forEach(item => {
-// 			if (item.value == item.subid) {
-// 				chosedCount++;
-// 			}
-// 		})
-// 		if(subdata.value == ' '){
-// 			if(chosedCount >= 5){
-// 				// this.showMsg();
-// 				// return;
-// 				return false;
-// 			}else{
-// 				subdata.value = subdata.subid;
-// 			}
-// 		}else{
-// 			subdata.value = ' ';
-// 		}
-// 	}
-// 	getUnFold(data){
-// 		//目前来说只能同时展开一个
-// 		if(this.isFoldid == data.id){
-// 			this.isFoldid = null;
-// 			return;
-// 		}
-// 		this.isFoldid = data.id;
-// 	}
-// }
+class MultiChooseList extends ChooseList{
+	constructor(pros){
+		super();
+		this.isFoldid = null,
+		Object.assign(this,pros);//Object.assign方法用于对象的合并
+        return this;
+	}
+	//本来应该是子类重写父类方法
+	//现在先重新命名函数名好了
+	getDataChoose(subdata, data){
+		let chosedCount = 0;
+		//每次点击时先遍历同栏子元素的个数
+		data.submennu.forEach(item => {
+			if (item.value == item.subid) {
+				chosedCount++;
+			}
+		})
+		if(subdata.value == ' '){
+			if(chosedCount >= 5){
+				throw new MultiExceed('所选超出5个！');
+			}else{
+				subdata.value = subdata.subid;
+			}
+		}else{
+			subdata.value = ' ';
+		}
+	}
+	getUnFold(data){
+		//目前来说只能同时展开一个
+		if(this.isFoldid == data.id){
+			this.isFoldid = null;
+			return;
+		}
+		this.isFoldid = data.id;
+	}
+}
 
 //子类1
 const singleList = new ChooseList();
 //子类2 商品筛选
-//const multiList = new  MultiChooseList();
-export default singleList;
+const multiList = new  MultiChooseList();
+export {
+	singleList,
+	multiList
+};
