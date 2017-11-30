@@ -48,6 +48,11 @@
 							this.dataList[index].array.push(data);
 						}	
 					}
+					else{
+						data.judge = 1;
+						data.value = data.subid;
+						this.dataList[index].array.push(data);
+					}
 				}
 				else{
 					data.judge = 0;

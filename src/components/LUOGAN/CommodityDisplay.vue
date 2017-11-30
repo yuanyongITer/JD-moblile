@@ -1,32 +1,34 @@
 <template>
 	<div>
 		<topButton></topButton>
-		<div v-if="isDouble" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20" @click="detailedIntroduction">
-			<div class="div_classDoubleLeft" v-for="(item,index) in num" :key="index">
-				<img src="../../assets/Lg_img/iphone8.jpg" class="img_classDouble">
-				<div class="div_classText">
-					<p class="p_classDoubleSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
-					<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
-					<p class="p_classLength">
-						<span class="all_class_Hightlight_Red"><i class="iconfont icon-ziying"></i></span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
-					</p>
+		<div style="margin-top:30px;" @touchmove="a">
+			<div v-if="isDouble" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20" @click="detailedIntroduction">
+				<div class="div_classDoubleLeft" v-for="(item,index) in num" :key="index">
+					<img src="../../assets/Lg_img/iphone8.jpg" class="img_classDouble">
+					<div class="div_classText">
+						<p class="p_classDoubleSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
+						<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
+						<p class="p_classLength">
+							<span class="all_class_Hightlight_Red"><i class="iconfont icon-ziying"></i></span><span class="span_classAppraise">272306条评价</span><span class="span_classData">99%好评</span>
+						</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div v-else>
-			<div v-for="(item,index) in num" :key="index" class="div_class_Grid" @click="detailedIntroduction" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10">
-				<div class="div_class_GridCol_Col33">
-					<img src="../../assets/Lg_img/iphone8.jpg" class="img_classSingle">
-				</div>
-				<div class="div_class_GridCol_Col66">
-					<p class="p_classSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
-					<div class="div_classMarginTop">
-						<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
+			<div v-else>
+				<div v-for="(item,index) in num" :key="index" class="div_class_Grid" @click="detailedIntroduction" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10">
+					<div class="div_class_GridCol_Col33">
+						<img src="../../assets/Lg_img/iphone8.jpg" class="img_classSingle">
 					</div>
-					<div class="div_classMarginTop">
-						<p>
-							<span class="all_class_Hightlight_Red"><i class="iconfont icon-ziying"></i></span><span class="span_classAppraise ">272306条评价</span><span class="span_classData">99%好评</span>
-						</p>
+					<div class="div_class_GridCol_Col66">
+						<p class="p_classSize">Apple iPhone 8 Plus(A1864) 64GB 金色 移动联通电信4G手机 两周超长待机 开辟手机新时代</p>
+						<div class="div_classMarginTop">
+							<span class="span_classMark">¥</span><span class="span_classValue">6688</span><span class="span_classShow">赠</span>
+						</div>
+						<div class="div_classMarginTop">
+							<p>
+								<span class="all_class_Hightlight_Red"><i class="iconfont icon-ziying"></i></span><span class="span_classAppraise ">272306条评价</span><span class="span_classData">99%好评</span>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -44,12 +46,36 @@
 	import { Indicator,Toast } from 'mint-ui';
 	export default{
 		data() {
+			// var startX, startY; 
+			// var endX, endY;
+			// document.addEventListener('touchstart',function (ev) {  
+  	// 			startX = ev.touches[0].pageX;  
+  	// 			startY = ev.touches[0].pageY;
+		 // 	}, false);
+		 // 	document.addEventListener('touchend',function (ev) {  
+  	// 	 		endX = ev.changedTouches[0].pageX;  
+  	// 			endY = ev.changedTouches[0].pageY;
+  	// 			GetSlideDirection(startX, startY, endX, endY);
+			// }, false);
+			// function GetSlideDirection(startX, startY, endX, endY) {  
+  	// 			var dy = startY - endY; 
+  	// 			var result;
+  	// 			let _this = this;
+  	// 			if(dy>0) {//向上滑动
+   //        			result = true;
+   //        			_this.state = true;
+  	// 			}else{//向下滑动
+  	// 				result = false;
+  	// 				_this.state = false;
+  	// 			}
+			// };
 			return{
 				loading:false,
 				allLoad:false,
 				allLoaded:false,
 				num:4,
 				isDouble:false,
+				state:false,
 			}
 		},
 		components:{
@@ -58,7 +84,6 @@
 			topButton
 		},
 		mounted(){
-
 		},
 		created(){
 			// this.loadData();
@@ -69,7 +94,6 @@
 			},
 			loadMore() {
 				let _this = this;
-				console.log(_this.num);
 				if(_this.allLoad){
 					return;
 				}
@@ -89,8 +113,8 @@
 	      		for(let i=0;i<4;i++){
 	      			this.num ++;
 	      		}
-      		}
-		},
+      		},
+		}
 	}
 </script>
 <style scoped lang = 'scss'>
