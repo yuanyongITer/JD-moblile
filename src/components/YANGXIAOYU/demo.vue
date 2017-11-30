@@ -80,7 +80,6 @@
         width: 100%;
         .div_class_ShopContent {
             background: $gcolorBgGray;
-            /*width: 96%;*/
             margin: auto;
         }
         .mint-navbar{

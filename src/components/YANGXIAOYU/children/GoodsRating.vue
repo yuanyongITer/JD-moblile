@@ -71,7 +71,7 @@
 	}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 	@import '../../../assets/css/Util.scss';
   @import '../../../assets/css/Common.scss';
 	#div_GoodsRating{
@@ -154,3 +154,4 @@
 			color: $gcolorGrayLight-2;
 		}
     }
+</style>
