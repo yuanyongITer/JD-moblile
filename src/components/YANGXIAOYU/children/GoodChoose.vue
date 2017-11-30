@@ -64,7 +64,6 @@
 	</div>
 </template>
 <script>
-	import axios from 'axios'
 	import {singleList} from '../ChooseList'
 
 	let newSingle = singleList;
