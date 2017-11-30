@@ -45,6 +45,7 @@
 @import '../../../assets/css/Util.scss';
 .div_class_GoodsRank{
     margin-top: 0.5rem;
+    background: #FFF;
     .div_class_Grid{
         flex-wrap:wrap;
         display: flex;
@@ -61,8 +62,19 @@
         font-weight: bold;
     }
     .p_class_Intro{
+        color: $gcolorGray;
         font-size: $gfontsizeMini;
-        @include setOverflowEllipsis(1);
+        @include setOverflowEllipsis(2);
+    }
+    .mint-tab-item{
+        padding: 10px 0;
+        color: $gcolorGray;
+        font-size: $gfontsizeNormal;
+    }
+    .mint-navbar .mint-tab-item.is-selected{
+        margin-bottom: 0;
+        border: none;
+        color: $gcolorHighlightRed;
     }
 }
 

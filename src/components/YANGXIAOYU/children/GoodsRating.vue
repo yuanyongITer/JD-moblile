@@ -9,10 +9,10 @@
 			<div>
 				好评度&nbsp;&nbsp;
 				<span>97%</span>
-				<i class="iconfont icon-arrow-right"></i>
+				<i class="iconfont icon-arrow-right"  @click="ToMoreRating()"></i>
 			</div>
 		</div>
-		<div class="div_class_ratingContent" v-for="item in num" :key="item">
+		<div class="div_class_ratingContent" v-for="item in 3" :key="item" @click="ToMoreRating()">
 			<div class="all_class_Border1px"></div>
 			<div class="div_class_Grid">
 				<div class="div_class_GridCol_Col6">
@@ -27,6 +27,7 @@
 					</p>
 				</div>
 			</div>
+
 			<div class="div_class_Grid">
 				<div class="div_class_GridCol_Col100">
 					<p class="p_class_Intro">
@@ -49,7 +50,6 @@
 		        <span>购买咨询</span>
 		    </div>
 	    </div>
-	    <div class="all_class_Border1px"></div>
 	</div>
 </template>
 <script>
@@ -57,24 +57,27 @@
 		name:'div_GoodsRating',
 		data(){
 			return {
-				num:3
+				id:true
 			}
 		},
 		created(){
 
 		},
 		methods:{
-
+			ToMoreRating(){
+				this.$emit('returnTabID','div_id_GoodRating');
+			}
 		}
 	}
 </script>
+
 <style lang="scss" scoped>
 	@import '../../../assets/css/Util.scss';
-  	@import '../../../assets/css/Common.scss';
+  @import '../../../assets/css/Common.scss';
 	#div_GoodsRating{
 		font-size: 0.8rem;
 		margin-bottom: 0.5rem;
-		padding-bottom: 1rem;
+		padding: 0.5rem 0.5rem 0rem;
 		background: #ffffff;
 		.div_class_RatingLink{
 			@include setFjustify(space-between);
@@ -90,7 +93,7 @@
 			}
 		}
 	}
-	
+
     /**底部的样式**/
     .div_class_ratingBtn{
 		@include setFjustify(space-between);
@@ -106,7 +109,7 @@
 	    	font-size: 0.8rem;
 		}
     }
-    
+
     /**评价详情样式**/
     .div_class_ratingContent{
     	padding: 0rem 0.2rem;
@@ -131,7 +134,7 @@
 			align-items: center;
 			padding: 0.4rem 0.2rem;
 			.span_class_userName{
-				font-size: $gfontsizeMini; 
+				font-size: $gfontsizeMini;
 			}
 			.span_class_star{
 				color: $gcolorHighlightRed;
@@ -151,4 +154,3 @@
 			color: $gcolorGrayLight-2;
 		}
     }
-</style>

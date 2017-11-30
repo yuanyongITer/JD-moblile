@@ -32,7 +32,7 @@
         <i class="iconfont icon-gengduo" @click="handleClick"></i>
       </div>
     </div>
-     <div class="all_class_Border1px"></div>
+    <!-- <div class="all_class_Border1px"></div> -->
     <!-- 弹出框 -->
     <mt-popup v-model="popupVisible" position="bottom" class="div_class_Popup">
       <div class="all_class_Header">
@@ -154,6 +154,10 @@
   @import '../../../assets/css/Common.scss';
   /*自定义样式*/
   .div_class_GoodsInfo {
+    background: #fff;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #DDD;
     .div_class_Grid:nth-child(3) {
       padding: 0.5rem 0;
     }
