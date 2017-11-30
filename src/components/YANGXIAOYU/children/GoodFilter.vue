@@ -1,4 +1,3 @@
-
 <!--
   筛选自动化测试
   @author:yxy
@@ -27,6 +26,7 @@
 					<i class="iconfont icon-icon-xia" v-else></i>
 				</div>
 			</div>
+
 			<div class="div_class_Flow" :class='{all_class_Fold:item.id == isFoldid}'>
 				<div class="div_class_Cart div_class_FlowCol "
 					:class='{all_class_Cliked_Red:subitem.subid == subitem.value}'
@@ -40,7 +40,9 @@
 </template>
 <script>
 	import axios from 'axios'
+	import {multiList} from '../ChooseList'
 
+	let newMulti = multiList;
 	export default {
 		data() {
 			return {
@@ -50,57 +52,29 @@
 			}
 		},
 		mounted() {
-			axios.get('https://easy-mock.com/mock/5a1bf55b74e00f187e2d4620/skydotMobile/goodfilter')
-				.then(response => {
-					response.data.forEach(element => {
-						element.submennu.forEach(subelement => {
-							subelement.value = ' ';
-						});
-					})
-					this.goodchooseList = response.data;
-				})
+			newMulti.initData('/goodfilter');
+			this.goodchooseList = newMulti.goodchooseList;
 		},
 		methods: {
 			getgoodChoose(subdata, data) {
-				let chosedCount = 0;
-				//每次点击时先遍历同栏子元素的个数
-				data.submennu.forEach(item => {
-					if (item.value == item.subid) {
-						chosedCount++;
-					}
-				})
-				/**@augments
-				 * 如果当前元素是可选择的 那么判断现在是否超过了5个
-				 * 		超过了=>return
-				 * 		未超过 =>正常事件
-				 * 如果当前事件是不可选的
-				 */
-				if(subdata.value == ' '){
-					if(chosedCount >= 5){
-						this.showMsg();
-						return;
-					}else{
-						subdata.value = subdata.subid;
-					}
-				}else{
-					subdata.value = ' ';
+				try{
+					newMulti.getDataChoose(subdata, data);
+				}
+				catch(MultiExceed){
+					this.showMsg();
 				}
 			},
 			getUnFold(data){
-				//目前来说只能同时展开一个
-				if(this.isFoldid == data.id){
-					this.isFoldid = null;
-					return;
-				}
-				this.isFoldid = data.id;
+				newMulti.getUnFold(data);
+				this.isFoldid = newMulti.isFoldid;
 			},
-			showMsg() {
-				this.$toast({
-					message: '筛选个数不能超过5个哦~',
-					position: 'center',
-					duration: 1000
-				})
-			}
+			// showMsg() {
+			// 	this.$toast({
+			// 		message: '筛选个数不能超过5个哦~',
+			// 		position: 'center',
+			// 		duration: 1000
+			// 	})
+			// }
 		}
 	}
 

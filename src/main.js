@@ -8,6 +8,11 @@ import {InputNumber,Input} from 'element-ui';
 import 'mint-ui/lib/style.css'
 import 'element-ui/lib/theme-chalk/index.css'
 
+import 'c-swipe/dist/swipe.css';
+import { Swipe, SwipeItem } from 'c-swipe';
+Vue.component('swipe', Swipe);
+Vue.component('swipe-item', SwipeItem);
+
 Vue.config.productionTip = false
 Vue.use(MintUI)
 Vue.use(InputNumber)
