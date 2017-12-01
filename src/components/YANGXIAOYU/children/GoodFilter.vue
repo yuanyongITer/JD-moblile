@@ -68,13 +68,13 @@
 				newMulti.getUnFold(data);
 				this.isFoldid = newMulti.isFoldid;
 			},
-			// showMsg() {
-			// 	this.$toast({
-			// 		message: '筛选个数不能超过5个哦~',
-			// 		position: 'center',
-			// 		duration: 1000
-			// 	})
-			// }
+			showMsg() {
+				this.$toast({
+					message: '筛选个数不能超过5个哦~',
+					position: 'center',
+					duration: 1000
+				})
+			}
 		}
 	}
 

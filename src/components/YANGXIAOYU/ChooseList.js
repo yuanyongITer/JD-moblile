@@ -18,13 +18,13 @@ import axios from 'axios'
 			子类2. 用于最后汇总统计  请求的时候?type = XXX||XX||XXX&&?color = XXX||XXX
 				[=>展示时可使用页面循环的方式
 			所以数据结构应该是：
-			chosedList = [{
-				'title':color, //父级的name 如颜色 规格等
-				'data'[红色]	//这个属性后期也可以换成id 为了便于只管理解我先用name
-			},{
-				'title':type,
-				'data':[16GB,256GB] //多选的情况
-			}]
+			// chosedList = [{
+			// 	'title':color, //父级的name 如颜色 规格等
+			// 	'data'[红色]	//这个属性后期也可以换成id 为了便于只管理解我先用name
+			// },{
+			// 	'title':type,
+			// 	'data':[16GB,256GB] //多选的情况
+			// }]
 	@method:
 		initData() //从远程获取数据
 		getGoodChoose() //click事件
@@ -62,12 +62,12 @@ class ChooseList {
 	//2. click事件 控制元素的选中与取消选中
 	getGoodChoose(subdata, data, menuname, idname, alldata) {
 		//每次点击先清空 然后赋值
-		data[menuname].forEach(item => {
+		/*data[menuname].forEach(item => {
 			//置空除被点击元素以外同栏的其他元素
 			if (item[idname] != subdata[idname]) {
 				item.value = ' ';
 			}
-		})
+		})*/
 		//判断当前元素是否是高亮状态
 		if (subdata.value == ' ') {
 			subdata.value = subdata[idname];
@@ -92,13 +92,15 @@ class ChooseList {
 				}
 				/************怎么优化****************/
 				if (subelement.minmennu != undefined) {
+					let data = [];
 					subelement.minmennu.forEach(minelement => {
 						if (minelement.value == minelement.minid) {
-							this.chosedServiceList.push({
-								'title': item.name,
-								'data': minelement.minname + " " + minelement.minprice
-							});
+							data.push( minelement.minname + " " + minelement.minprice);
 						}
+					})
+					this.chosedServiceList.push({
+						'title': subelement.subname,
+						'data': data
 					})
 				}
 			});

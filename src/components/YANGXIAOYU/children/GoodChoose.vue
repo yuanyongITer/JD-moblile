@@ -47,9 +47,9 @@
 				<!-- 保障服务 -->
 				<p class="p_class_Title">{{item.name}}</p>
 				<!-- 各类保障服务 -->
-				<div class="div_class_Service" v-for='subitem in item.submennu' :key='subitem.subid'>
-					<p class="p_class_Title_Black">
-						<i class="iconfont icon-guanzhu"></i>{{subitem.subname}}</p>
+				<div class="div_class_Service " v-for='subitem in item.submennu' :key='subitem.subid'>
+					<p class="p_class_Title_Black " >
+						<i class="iconfont icon-guanzhu" :class='{all_class_Cliked_Red:subitem.value == subitem.subid}' @click="parentClick(subitem)"></i>{{subitem.subname}}</p>
 					<div class="div_class_Flow">
 						<div class="div_class_Cart div_class_FlowCol" v-for='minitem in subitem.minmennu' :key='minitem.minid' :class='{all_class_Cliked_Red:minitem.minid == minitem.value}'
 							@click='getGoodChoose(minitem,subitem,"minmennu","minid")'
@@ -73,7 +73,8 @@
 				num: 1,
 				goodchooseList: '',
 				chosedList: [], //商品规格
-				chosedServiceList: [] //选择的服务
+				chosedServiceList: [], //选择的服务
+				//parentState:0//默认是不选中的
 			}
 		},
 		mounted() {
@@ -85,8 +86,37 @@
 				newSingle.getGoodChoose(subdata,data,menuname,idname,this.goodchooseList);
 				this.chosedList = newSingle.chosedList;
 				this.chosedServiceList = newSingle.chosedServiceList;
+
+				/*********仿zouling页面功能**************/
+					data.value =data.subid;//让当前父级被点击
+					//每次点击遍历chosedServiveList ,在此list里面查找当前栏的数组
+					let filterdata = this.chosedServiceList.filter(item=>{
+						if(item.title == data.subname){
+							return item;
+						}
+					})
+					//判断当前栏的所选元素是否为0,如果为0则父级取消高亮
+					if(!filterdata[0].data.length){
+						data.value = ' ';
+					}
+				/*********仿zouling页面功能**************/
+			},
+			parentClick(data){
+				if(data.value == data.subid){//父级亮
+					data.minmennu.forEach(element => {
+						element.value  = ' ';
+					});
+					data.value = ' ';
+				}else{//父级未亮
+					data.minmennu.forEach(element => {
+						element.value  = element.minid;
+					});
+					data.value = data.subid;
+				}
+				newSingle.getAllChosed(this.goodchooseList);
 			}
-		}
+		},
+
 	}
 
 </script>
