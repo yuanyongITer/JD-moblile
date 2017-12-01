@@ -1,0 +1,38 @@
+{
+    "GROUP_LIST": {
+        "public": {
+            "group_key": "public",
+            "group_name": "公有接口"
+        },
+        "menu": {
+            "group_key": "menu",
+            "group_name": "菜单接口"
+        }
+    },
+    "API_LIST": {
+        "LOGIN": {
+            "url": "public.login",
+            "name": "登录",
+            "group": "public",
+            "meta": {
+                "isAuth": false
+            }
+        },
+        "MENU_LIST_ALL": {
+            "url": "menu.listall",
+            "name": "获取所有菜单",
+            "group": "menu",
+            "meta": {
+                "isAuth": true
+            }
+        },
+        "MENU_LIST": {
+            "url": "menu.list",
+            "name": "检索符合条件菜单",
+            "group": "menu",
+            "meta": {
+                "isAuth": true
+            }
+        }
+    }
+}
