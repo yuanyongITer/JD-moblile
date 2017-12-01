@@ -1,7 +1,7 @@
 import demo from '@/components/LUOGAN/CommodityDisplay'//商品展示
 import loadtest from '@/components/LUOGAN/LoadMoreTest' //下拉加载更多测试组件
 import topbutton from '@/components/LUOGAN/CommodityDisplayTopButton'
-import SpreadTest from '@/components/LUOGAN/test'
+import SpreadTest from '@/components/LUOGAN/SpreadTest'
 const list = [{
 	path: '/demo',
     name: 'demo',

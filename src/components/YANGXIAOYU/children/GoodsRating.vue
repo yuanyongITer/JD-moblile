@@ -71,13 +71,9 @@
 	}
 </script>
 
-<<<<<<< HEAD
 <style lang="scss" scoped>
-=======
-<style lang="scss">
->>>>>>> 5310f629c1ac3e2657061290ba5c4c01f5fc5569
 	@import '../../../assets/css/Util.scss';
-  @import '../../../assets/css/Common.scss';
+  	@import '../../../assets/css/Common.scss';
 	#div_GoodsRating{
 		font-size: 0.8rem;
 		margin-bottom: 0.5rem;
@@ -158,3 +154,4 @@
 			color: $gcolorGrayLight-2;
 		}
     }
+</style>

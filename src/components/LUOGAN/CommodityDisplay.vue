@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<topButton></topButton>
-		<div style="margin-top:30px;" @touchmove="a">
+		<div style="margin-top:30px;">
 			<div v-if="isDouble" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20" @click="detailedIntroduction">
 				<div class="div_classDoubleLeft" v-for="(item,index) in num" :key="index">
 					<img src="../../assets/Lg_img/iphone8.jpg" class="img_classDouble">

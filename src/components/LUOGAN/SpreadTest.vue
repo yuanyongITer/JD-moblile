@@ -1,15 +1,23 @@
 <template>
     <div class="div_class_Popup">
-        <div v-for="(item,index) in dataList" :key="index">
-            <div class="div_class_Grid"  style="justify-content:space-between;">
-                <div class="div_class_GridCol_Col33">{{item.name}}</div>
-                <div class="div_class_GridCol_Col33" @click="MoreColor(item.isSpread,index)">全部</div>
+        <div class="div_class_conditon">
+            <div v-for="(item,index) in dataList" :key="index">
+                <div class="div_class_Grid"  style="justify-content:space-between;">
+                    <div class="div_class_GridCol_Col33">{{item.name}}</div>
+                    <div class="div_class_GridCol_Col20" @click="MoreColor(item.isSpread,index)">全部</div>
+                </div>
+                <div class="div_class_Flow" :id=item.id>
+                    <div class="div_class_FlowCol" :class='{all_class_Cliked_Red:list.value == list.subid}' v-for="(list,e) in item.submennu"  :key="e" @click="choosed(list,index,e)">{{list.subname}}</div>
+                </div>
             </div>
-            <div class="div_class_Blank"></div>
-            <div class="div_class_Flow" :id=item.id>
-                <div class="div_class_FlowCol" :class='{all_class_Cliked_Red:list.value == list.subid}' v-for="(list,e) in item.submennu"  :key="e" @click="choosed(list,index,e)">{{list.subname}}</div>
+        </div>
+        <div class="div_class_Grid bottomBtn">
+            <div class="div_class_GridCol_Col45 bottomBtnRest">
+                重置
             </div>
-            <div class="div_class_Blank"></div>
+            <div class="div_class_GridCol_Col45 bottomBtnConfirm">
+                确定
+            </div>
         </div>
     </div>
 </template>
@@ -67,7 +75,7 @@
             },   
             MoreColor(flag,index){
                 let height = Math.ceil((this.dataList[index].submennu.length)/3);
-                height = height * 28;
+                height = height * 30;
                 this.dataList[index].isSpread = !flag;
                 if(!flag){
                     document.getElementById(this.dataList[index].id).style.height = height+"px";
@@ -80,43 +88,63 @@
         }
   }
 </script>
-<style lang = 'scss'>
+<style lang = 'scss' scoped>
     @import '../../assets/css/Util.scss';
     @import '../../assets/css/common.scss';
-    $hightlightcolor:red;
-    $fontsize:0.8rem;
-    $infocolor:#a7a7a2;
     .all_class_Cliked_Red{
         @include setHighLight(1px);
     }
     .div_class_Popup{
+        @include setWH(100%,90%);
         display: flex;
         flex-direction: column;
-        flex: 1;
-        min-height: 18rem;
+    }
+    .div_class_conditon{
+        @include setWH(100%,100%);
+        padding: 0rem 0.5rem;
+        min-height: 10rem;
         overflow-y: scroll;
         overflow-x: hidden; //禁用横向滚动条
+        flex: 1; //让底部栏永远在底部
+        margin: auto;
     }
-    .div_class_Blank{
-        height: 0.8rem;
-        width: 100%;
-    }
+    
     .div_class_Flow{
-        height: 28px;
+        margin: 0.8rem auto;
+        height: 30px;
         overflow: hidden;
-        display: flex;
+        @include setFjustify(flex-start);
         flex-flow: row wrap;
-        align-content: flex-start;
         text-align: center;
-        font-size: $fontsize;
+        font-size: $gfontsizeNormal;
         .div_class_FlowCol{
-            font-size: 0.6rem;
+            font-size: $gfontsizeMini;
             box-sizing: border-box;
-            background: $infocolor;
+            background: $gcolorBgGray;
             white-space: nowrap;
             flex: 0 0 30%;
             margin: 0.2rem;
             padding: 0.2rem  0.5rem ;
+            border: 1px solid $gcolorBgGray;
+            border-radius: 5px;
+        }
+    }
+    .bottomBtn{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid $gcolorBgGray;
+        font-size: $gfontsizeBig;
+        .bottomBtnRest{
+            padding: 1rem 0.5rem;
+            background: #fff;
+            text-align: center;
+        }
+        .bottomBtnConfirm{
+            padding: 1rem 0.5rem;
+            background: red;
+            color: #fff;
+            text-align: center;
         }
     }
 </style>

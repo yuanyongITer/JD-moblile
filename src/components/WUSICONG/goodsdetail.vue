@@ -102,7 +102,7 @@
 		},
 	}
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 	@import '../../assets/css/Util.scss';
     @import '../../assets/css/Common.scss';
     @import '../../assets/css/minxi.scss';
