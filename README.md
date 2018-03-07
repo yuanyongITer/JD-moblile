@@ -11,6 +11,7 @@
 ``` bash
 cnpm install
 cnpm run dev
+http://localhost:8081/demo
 ```
 
 # 效果图
