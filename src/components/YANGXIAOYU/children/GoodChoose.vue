@@ -96,7 +96,7 @@
 						}
 					})
 					//判断当前栏的所选元素是否为0,如果为0则父级取消高亮
-					if(!filterdata[0].data.length){
+					if(filterdata[0]&&!filterdata[0].data.length){
 						data.value = ' ';
 					}
 				/*********仿zouling页面功能**************/

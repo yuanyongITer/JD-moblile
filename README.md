@@ -1,24 +1,28 @@
-# skydot
+# 说明
 
-> A Vue.js project
+> 一个仿京东的静态页面，本来是正式项目的，但是项目中途因为非技术(管理层)原因被叫停，不过作为技术人员来说，在做项目的过程中，仍不影响技术的收获。
 
-## Build Setup
+**完成的功能：**
++ 常规商品的展示页，详情页等
++ 相似页面功能的复用思考
+
+# 运行
 
 ``` bash
-# install dependencies
-npm install
-
-# 安装node -sass
-npm i sass-loader node-sass -D
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+cnpm install
+cnpm run dev
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# 效果图
+![](./READMEIMG/效果展示.gif)
+
+# 遇到的技术难点
++ css布局方面收获了很多小tips，以及第一次站在一个高角度想问题(即css复用的问题)，我负责完成项目中主要布局的搭建并走在前面将移动端布局的难点扫雷解决，之后将站在一个新的高度尽最大努力地提公有css样式、布局、函数等，统一了样式代码并大大加快了开发进度。
++ 除了css知识以外，还遇到了相似页面相似逻辑的问题。
+
+# 相关解决笔记
++ [移动端css相关](https://github.com/EmilyYoung71415/JD-moblile/issues/1)
++ [相似商品筛选页面复用问题](https://github.com/EmilyYoung71415/JD-moblile/issues/2)
+
+
+

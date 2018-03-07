@@ -68,7 +68,6 @@ class ChooseList {
 				item.value = ' ';
 			}
 		})*/
-		//判断当前元素是否是高亮状态
 		if (subdata.value == ' ') {
 			subdata.value = subdata[idname];
 		} else {
