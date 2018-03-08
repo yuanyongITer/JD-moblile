@@ -47,8 +47,9 @@ class ChooseList {
 			.then(response => {
 				response.data.forEach(element => {
 					element.submennu.forEach(subelement => {
+						//为最基础数据添加value属性
 						subelement.value = ' ';
-						//如果有三级菜单 /**********优化****/
+						//如果有三级菜单
 						if (subelement.minmennu != undefined) {
 							subelement.minmennu.forEach(minelement => {
 								minelement.value = ' ';
@@ -89,7 +90,7 @@ class ChooseList {
 						'data': subelement.subname
 					})
 				}
-				/************怎么优化****************/
+				/************三级菜单****************/
 				if (subelement.minmennu != undefined) {
 					let data = [];
 					subelement.minmennu.forEach(minelement => {
@@ -123,8 +124,6 @@ class MultiChooseList extends ChooseList{
 		Object.assign(this,pros);//Object.assign方法用于对象的合并
         return this;
 	}
-	//本来应该是子类重写父类方法
-	//现在先重新命名函数名好了
 	getDataChoose(subdata, data){
 		let chosedCount = 0;
 		//每次点击时先遍历同栏子元素的个数
@@ -139,7 +138,7 @@ class MultiChooseList extends ChooseList{
 			}else{
 				subdata.value = subdata.subid;
 			}
-		}else{
+		}else{//反选
 			subdata.value = ' ';
 		}
 	}
