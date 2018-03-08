@@ -11,7 +11,7 @@
 ``` bash
 cnpm install
 cnpm run dev
-http://localhost:8081/demo
+http://localhost:8080/demo
 ```
 
 # 效果图
@@ -22,8 +22,8 @@ http://localhost:8081/demo
 + 除了css知识以外，还遇到了相似页面相似逻辑的问题。
 
 # 相关解决笔记
-+ [移动端css相关](https://github.com/EmilyYoung71415/JD-moblile/issues/1)
-+ [相似商品筛选页面复用问题](https://github.com/EmilyYoung71415/JD-moblile/issues/2)
++ [移动端css相关](https://github.com/EmilyYoung71415/JD-moblile/wiki/%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93)
++ [相似商品筛选页面复用问题](https://github.com/EmilyYoung71415/JD-moblile/wiki/%E5%95%86%E5%93%81%E7%AD%9B%E9%80%89%E9%A1%B5%E9%80%BB%E8%BE%91%E5%A4%8D%E7%94%A8%E6%80%9D%E8%80%83)
 
 
 
